@@ -55,5 +55,3 @@ SELECT  fl.name FROM information_session AS f INNER JOIN information_session i O
 
 localhost/findWorkReport/login.php
 
-
-
