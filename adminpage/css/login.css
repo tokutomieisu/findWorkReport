@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+.div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.passtext {
+    font-size: 50px;
+    width: 37%;
+    border: 1px solid rgb(133, 133, 133);
+    border-right: transparent;
+}
+
+#buttonEye {
+    background-color: white;
+    border: 1px solid rgb(133, 133, 133);
+    border-left: transparent;
+    height: 42px;
+    line-height: 42px;
+}
+
+h1 {
+    font-size: 35px;
+    margin: 150px auto 37px auto;
+    letter-spacing: 3px;
+    text-align: center;
+    border: none;
+}
+
+.text {
+    margin: 0 auto;
+    text-align: center;
+    width: 62vw;
+}

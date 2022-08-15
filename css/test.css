@@ -1,0 +1,62 @@
+@charset "UTF-8";
+
+h1 {
+    text-align: left;
+}
+
+h2 {
+    text-align: left;
+}
+
+.radio {
+    width: 10%;
+    height: 20px;
+}
+
+.radio_label {
+    font-size: 25px;
+}
+
+#from {
+    text-align: left;
+    margin-bottom: 2%;
+}
+
+/* #list {
+    text-align: left;
+    margin-left: 5%;
+} */
+
+#list label {
+    height: 30px;
+    line-height: 30px;
+    font-size: 19px;
+}
+
+#title,
+#room,
+#num {
+    width: 40%;
+    font-size: 15px;
+}
+
+#time {
+    width: 8%;
+    height: 30px;
+    font-size: 15px;
+}
+
+#wordCnt {
+    width: 8%;
+    height: 30px;
+    font-size: 15px;
+}
+
+.textarea {
+    margin: 3% auto;
+}
+
+
+.minitext {
+    width: 20%;
+}

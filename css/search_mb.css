@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+.textbox {
+    margin: 0px auto 32px auto;
+}
+
+optgroup {
+    width: 20%;
+}

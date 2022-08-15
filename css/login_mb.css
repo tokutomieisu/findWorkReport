@@ -1,0 +1,62 @@
+@charset "UTF-8";
+
+.div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.passarea {
+    height: 50px;
+    margin-bottom: 5%;
+}
+
+.title {
+    margin-bottom: 0px;
+    vertical-align: bottom;
+    text-align: left;
+    margin-left: 2%;
+    font-size: 20px;
+}
+
+.passtext {
+    font-size: 45px;
+    width: 88.5%;
+    border: 1px solid rgb(133, 133, 133);
+    border-right: transparent;
+}
+
+#buttonEye {
+    background-color: white;
+    border: 1px solid rgb(133, 133, 133);
+    border-left: transparent;
+    height: 52px;
+    line-height: 52px;
+    padding-right: 4px;
+}
+
+.login_text {
+    font-size: 28px;
+}
+
+/* .text_left {
+    width: 69%;
+    margin-bottom: 55px;
+} */
+
+.h_img {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.t_img {
+    width: 20%;
+}
+
+.img_title {
+    font-size: 24px;
+    letter-spacing: 2px;
+    color: #71a0c0;
+    font-weight: 600;
+}

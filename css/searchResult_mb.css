@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+/* 上書き用 */
+
+.text {
+    margin: 29% auto 0px auto;
+}
+
+.panel {
+    width: 80vw;
+    height: 55px;
+    text-align: center;
+    line-height: 55px;
+    margin: 40px auto;
+    border: 1px solid #4d5156;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #ffffff78;
+    box-shadow: 0 1px 5px 0 rgb(161 182 191 / 40%);
+}
+
+.panel a {
+    display: block;
+    height: 100%;
+    text-decoration: none;
+    color: #4d5156;
+    letter-spacing: 2px;
+    font-size: 20px;
+}
+
+span {
+    display: block;
+    margin: 0px;
+    width: fit-content;
+    height: 50%;
+    line-height: normal;
+}
+
+#notbtn a {
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    width: 100%;
+}

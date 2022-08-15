@@ -1,0 +1,13 @@
+@charset "UTF-8";
+.company {
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+    width: 100%;
+    margin-bottom: 2%;
+    padding-right: 2%;
+}
+
+.company p {
+    margin-right: 10px;
+}

@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+/* サイドメニュー */
+#sub {
+    box-sizing: border-box;
+    top: 60px;
+    height: 100%;
+    width: 20%;
+    position: fixed;
+    overflow: hidden;
+    background: #ffffff;
+    padding: 100px 2%;
+}
+
+.main {
+    box-sizing: border-box;
+    margin-left: 15%;
+    padding: 20px 40px;
+}
+
+#sub a {
+    line-height: 2.5em;
+    text-decoration: underline;
+}
+
+#sub span {
+    margin-left: 5%;
+    background-color: rgb(255, 56, 56);
+    border-radius: 10px;
+    padding: 3%;
+    color: #fff;
+    font-size: small;
+}
+
+/* テーブル */
+table {
+    margin: 30px auto 0 auto;
+    width: 100%;
+    font-size: 20px;
+}
+
+th,
+td {
+    padding: 15px;
+    background-color: #fff;
+}
+
+th {
+    width: 30%;
+}
+
+td a {
+    display: block;
+    text-align: center;
+}

@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+.btn_flex {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.btn {
+    margin: 1.5% auto;
+}

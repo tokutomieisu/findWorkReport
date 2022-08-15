@@ -1,0 +1,114 @@
+@charset "UTF-8";
+
+#main {
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+    margin-bottom: 50px;
+}
+
+.t_left {
+    text-align: start;
+
+}
+
+p.t_left {
+    margin: 6px 0px 0px 0px;
+}
+
+
+.record_t {
+    font-size: 22px;
+    margin: 4px 0px 23px 25px;
+}
+
+.record_select {
+    font-size: 22px;
+    margin: 0px 20px 0px 30px;
+    vertical-align: super;
+    padding: 7px;
+}
+
+.radio_base {
+    width: 20px;
+    height: 20px;
+    margin: 0px;
+    vertical-align: middle;
+}
+
+#info {
+    width: 60vw;
+    margin: 0 auto;
+}
+
+#info label {
+    height: 20px;
+    line-height: 20px;
+    vertical-align: middle;
+    font-size: 22px;
+}
+
+#info p {
+    margin: 40px 0px;
+}
+
+.radio {
+    text-align: left;
+    vertical-align: middle;
+    margin: 0;
+}
+
+.check {
+    text-align: left;
+    /* width: fit-content;
+    height: 20px; */
+    vertical-align: middle;
+    margin: 0;
+}
+
+.text_left {
+    text-align: start;
+}
+
+.radio_l {
+    margin-right: 14px;
+    height: 20px;
+    vertical-align: middle;
+}
+
+.radio_ls {
+
+    margin-right: 14px;
+    height: 20px;
+    vertical-align: middle;
+}
+
+.record_input {
+    height: 40px;
+    width: 23%;
+    margin: 0px 20px 0px 30px;
+}
+
+.div {
+    margin-right: 45px;
+}
+
+h2 {
+    margin: 0px;
+}
+
+.title {
+    text-align: start;
+}
+
+.article {
+    text-align: start;
+}
+
+.radio_l:nth-of-type(6) {
+    margin-right: 66px;
+}
+
+.record_textarea {
+    margin: 0px;
+}

@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+.backimg {
+    position: absolute;
+    position: fixed;
+    top: 80px;
+    left: 47px;
+}
+
+.backimg img {
+    width: 17px;
+}

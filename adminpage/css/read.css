@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+.btn {
+    margin: 0;
+}
+
+.text {
+    text-align: left;
+}
+
+.tb_flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+input {
+    width: 50%;
+}
+
+.input-group {
+    width: 40%;
+    position: absolute;
+    right: 0px;
+}
+
+.btn-outline-secondary {
+    width: 20%;
+
+}

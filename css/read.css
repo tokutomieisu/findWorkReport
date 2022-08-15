@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+h2 {
+    font-weight: normal;
+}
+
+
+.main {
+    margin: 0 auto 50px auto;
+}
+
+.category {
+    display: block;
+    width: 75%;
+    background-color: white;
+    font-size: 20px;
+    padding: 5px;
+    border: 1px solid rgb(114, 114, 114);
+    margin: 3% auto;
+}
+
+.category2 {
+    display: block;
+    width: 75%;
+    background-color: white;
+    font-size: 20px;
+    padding: 10px;
+    border: 1px solid rgb(114, 114, 114);
+    margin: 1% auto;
+}
+
+.area {
+    width: 100%;
+    margin: auto;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+.tabClass {
+    width: 24.85%;
+    background-color: rgb(210 221 228);
+    padding: 10px 0;
+    color: #6e6767;
+    line-height: 50px;
+    font-size: 20px;
+    text-align: center;
+    display: block;
+    float: left;
+    order: -1;
+    border-right: 1px solid #fff;
+}
+
+input[name="tabName"] {
+    display: none;
+}
+
+input:checked+.tabClass {
+    background-color: #87cefa;
+    color: black;
+}
+
+.contentClass {
+    display: none;
+    width: 100%;
+    margin-top: 35px;
+}
+
+input:checked+.tabClass+.contentClass {
+    display: block;
+}

@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+body {
+    background: #f2f2f2;
+    margin: 0;
+    padding: 0;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 35px;
+    margin: 150px auto 37px auto;
+    letter-spacing: 6px;
+    color: #4d5156;
+}
+
+h2 {
+    color: #4d5156;
+}
+
+.h2RC {
+    margin: 150px auto 37px auto;
+}
+
+.textbox {
+    margin: 20px 5px;
+}
+
+.text {
+    margin: 0 auto 0px auto;
+    text-align: center;
+    width: 62vw;
+}
+
+.text_mb {
+    margin: 0 auto 100px auto;
+    text-align: center;
+    width: 62vw;
+}
+
+input {
+    width: 40%;
+    height: 40px;
+    font-size: 17px;
+    letter-spacing: 3px;
+    outline: none;
+}
+
+.input_border {
+    border: 1px solid #858585;
+}
+
+input:-webkit-autofill {
+    box-shadow: 0 0 0 1000px white inset;
+}
+
+input:placeholder-shown {
+    font-size: 17px;
+}
+
+.checkbox {
+    width: 18px;
+    height: 15px;
+}
+
+select {
+    padding: 10px;
+    width: 40%;
+    height: 46px;
+    font-size: 17px;
+}
+
+#inputSerch {
+    width: 39%;
+}
+
+#h1Login {
+    margin: 12% auto 2%;
+}
+
+.largeText {
+    width: 100%;
+    height: 100px;
+    font-size: 25px;
+}
+
+.flex {
+    display: flex;
+}
+
+.companyLogoImg {
+    width: 20px;
+}
+
+/* .area {
+    width: 100%;
+    margin: auto;
+    flex-wrap: wrap;
+    display: flex;
+} */

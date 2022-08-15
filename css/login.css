@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+.div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.passtext {
+    font-size: 45px;
+    width: 37.5%;
+    border: 1px solid rgb(133, 133, 133);
+    border-right: transparent;
+}
+
+#buttonEye {
+    background-color: white;
+    border: 1px solid rgb(133, 133, 133);
+    border-left: transparent;
+    height: 42px;
+    line-height: 42px;
+    padding-right: 4px;
+}
+
+.login_text {
+    font-size: 28px;
+}
+
+.text_left {
+    width: 69%;
+    margin-bottom: 55px;
+}

@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+.area {
+    width: 100%;
+    height: 73px;
+    margin: auto;
+}
+
+.btn_a {
+    background-color: #87cefa;
+    border-radius: 20px;
+    width: 75%;
+    height: 45px;
+    display: inline-block;
+    transition: 0.3s;
+    text-decoration: none;
+    color: #fff;
+    text-align: center;
+    line-height: 45px;
+    margin: 1% auto;
+    border: none;
+    font-size: 25px;
+    padding: 5px;
+}
+
+.btn_a:hover {
+    color: #87cefa;
+    background: #fff;
+    border: 1px solid #87cefa;
+    transition: 0.3s;
+}
+
+table.report {
+    margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 0px 13px;
+    font-size: 12px;
+    border: none;
+    margin-bottom: 100px;
+    z-index: -99;
+}
+
+table.report_another {
+    margin-bottom: 5px;
+}
+
+table.report th,
+table.report td {
+    padding: 10px;
+    border: none;
+}
+
+table.report th {
+    background: #87cefa;
+    vertical-align: middle;
+    text-align: left;
+    width: 20%;
+    overflow: visible;
+    color: #fff;
+    font-weight: normal;
+    font-size: 21px;
+    height: 47px;
+    padding-left: 25px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+table.report th:after {
+    left: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(136, 183, 213, 0);
+    border-left-color: #87cefa;
+    border-width: 10px;
+    margin-top: -10px;
+}
+
+/* firefox */
+@-moz-document url-prefix() {
+    table.report th::after {
+        float: right;
+        padding: 0;
+        left: 30px;
+        top: 10px;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: relative;
+        pointer-events: none;
+        border: 10px solid transparent;
+        border-left: #87cefa 10px solid;
+        margin-top: -10px;
+    }
+}
+
+table.report td {
+    background: #f8f8f8;
+    width: 360px;
+    padding-left: 20px;
+    font-size: 21px;
+    border: #87cefa 1px solid;
+    border-left: none;
+}
+
+.a_list {
+    text-align: left;
+    padding-left: 11%;
+    width: 61%;
+
+}
+
+input {
+    width: 90%;
+    border: none;
+    border-bottom: 1px solid #87cefa;
+    padding: 0px 20px;
+}
+
+table.reports th {
+    padding-left: 12px;
+}
+
+table.reports td {
+    padding-left: 0px;
+}
