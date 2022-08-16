@@ -66,7 +66,7 @@ try {
         <form action="searchResult.php" method="get">
             <div class="text">
             <?php foreach ($stmt as $row) { ?>
-                <p class="panel"><a href="findWorkReport.php?af_id=<?= $row["af_id"] ?>"><span><?= $row["day"] ?></span><span><?= $row["curriculum"] . "&nbsp;" . $row["course"]; ?></span></a></p>
+                <p class="panel"><a href="div_mb.php?af_id=<?= $row["af_id"] ?>"><span><?= $row["day"] ?></span><span><?= $row["curriculum"] . "&nbsp;" . $row["course"]; ?></span></a></p>
             <?php } ?>
             </div>
         </form>
