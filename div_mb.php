@@ -1,7 +1,12 @@
 <?php
+session_start();
+
 if(!empty($_GET['af_id'])){
-    $_SESSION["AFID"] = $_GET['af_id'];
+    $_SESSION["af_id"] = $_GET['af_id'];
     echo $_GET['af_id'];
+}
+if(!empty($_SESSION["COMPANYNAME"])){
+    $companyName = $_SESSION["COMPANYNAME"];
 }
 
 ?>
@@ -25,7 +30,7 @@ if(!empty($_GET['af_id'])){
         <div class="headwrrap">
             <div class="flex h_textarea">
                 <a href="readStudentInfo_mb.php" class="backimg"><img src="img/back_mb.png" alt="back"></a>
-                <p class="h_text">LINE株式会社</p>
+                <p class="h_text"><?= $companyName ?></p>
             </div>
 
         </div>
@@ -35,10 +40,10 @@ if(!empty($_GET['af_id'])){
             <div class="text">
 
                 <ul>
-                    <li><a href="findWorkReport_mb.php?c_cd=1"><span>説明会</span><img src="img/arrow.png" alt="" class="li_img"></a></li>
-                    <li><a href="findWorkReport_mb.php?c_cd=2"><span>試験</span><img src="img/arrow.png" alt="" class="li_img"></a></li>
-                    <li><a href="findWorkReport_mb.php?c_cd=3"><span>面接</span><img src="img/arrow.png" alt="" class="li_img"></a></li>
-                    <li><a href="findWorkReport_mb.php?c_cd=4"><span>その他</span><img src="img/arrow.png" alt="" class="li_img"></a></li>
+                    <li><a href="findWorkReport_mb.php?a_cd=1"><span>説明会</span><img src="img/arrow.png" alt="" class="li_img"></a></li>
+                    <li><a href="findWorkReport_mb.php?a_cd=2"><span>試験</span><img src="img/arrow.png" alt="" class="li_img"></a></li>
+                    <li><a href="findWorkReport_mb.php?a_cd=3"><span>面接</span><img src="img/arrow.png" alt="" class="li_img"></a></li>
+                    <li><a href="findWorkReport_mb.php?a_cd=4"><span>その他</span><img src="img/arrow.png" alt="" class="li_img"></a></li>
                 </ul>
 
             </div>
