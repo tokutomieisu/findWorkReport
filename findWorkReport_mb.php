@@ -1,20 +1,22 @@
 <?php
 session_start();
 
-if(!empty($_GET['a_cd'])){
+if (!empty($_GET['a_cd'])) {
     $_SESSION["a_cd"] = $_GET['a_cd'];
     $a_cd = $_GET['a_cd'];
+} else {
+    $a_cd = $_SESSION['a_cd'];
 }
 
-if(!empty($_SESSION["af_id"])){
+if (!empty($_SESSION["af_id"])) {
     $affiliationId = $_SESSION["af_id"];
 }
 
-if(!empty($_SESSION["COMPANYID"])){
+if (!empty($_SESSION["COMPANYID"])) {
     $companyId = $_SESSION["COMPANYID"];
 }
 
-if(!empty($_SESSION["COMPANYNAME"])){
+if (!empty($_SESSION["COMPANYNAME"])) {
     $companyName = $_SESSION["COMPANYNAME"];
 }
 
@@ -28,23 +30,33 @@ $br = '<br>';
 try {
     $dbh = new PDO($dsn, $user, $password);
 
-    if($a_cd == 1){
+    if ($a_cd == 1) {
         $sql = "SELECT f.j_id  , f.day , i.classification FROM findworkreport f INNER JOIN information_session i  ON f.j_id = i.j_id WHERE c_id = '$companyId' AND af_id = '$affiliationId' AND a_cd = '1' ORDER BY day DESC;";
         $a_name = "説明会";
-    }else if($a_cd == 2){
+    } else if ($a_cd == 2) {
         $sql = "SELECT f.j_id  , f.day , t.classification FROM findworkreport f INNER JOIN tests t  ON f.j_id = t.j_id WHERE c_id = '$companyId' AND af_id = '$affiliationId' AND a_cd = '2' ORDER BY day DESC;";
         $a_name = "試験";
-    }else if($a_cd == 3){
+    } else if ($a_cd == 3) {
         $sql = "SELECT f.j_id  , f.day , i.classification FROM findworkreport f INNER JOIN interview i  ON f.j_id = i.j_id WHERE c_id = '$companyId' AND af_id = '$affiliationId' AND a_cd = '3' ORDER BY day DESC;";
         $a_name = "面接";
-    }else if($a_cd == 4){
+    } else if ($a_cd == 4) {
         $sql = "SELECT f.j_id  , f.day , o.classification FROM findworkreport f INNER JOIN other o  ON f.j_id = o.j_id WHERE c_id = '$companyId' AND af_id = '$affiliationId' AND a_cd = '4' ORDER BY day DESC;";
         $a_name = "その他";
     }
 
+    $_SESSION["a_name"] = $a_name;
+
     // クエリの実行
 
     $stmt = $dbh->query($sql);
+    $count = $stmt->rowCount();
+    if ($count == 0) {
+        $notStmt = "レポートはありません。";
+        $back = "戻る";
+    }else{
+        $notStmt = "";
+        $back = "";
+    }
 
     // 接続を閉じる(※DBからデータを取得出来た時点で接続を切る)
     $dbh = null;
@@ -82,10 +94,12 @@ try {
     <section class="main">
         <form action="searchResult.php" method="get">
             <div class="text">
-            <?php foreach ($stmt as $row) { ?>
-                <p class="panel"><a href="readReport.php?j_id=<?= $row["j_id"] ?>"><span><?= $row["classification"] ?></span><span class="date"><?= date('Y年n月d日', strtotime($row["day"]))?></span></a></p>
+                <?php foreach ($stmt as $row) { ?>
+                    <p class="panel"><a href="readReport_mb.php?j_id=<?= $row["j_id"] ?>"><span><?= $row["classification"] ?></span><span class="date"><?= date('Y年n月d日', strtotime($row["day"])) ?></span></a></p>
+                <?php } ?>
+                <p><?= $notStmt ?></p>
+                <a href="div_mb.php"><?= $back ?></a>
             </div>
-            <?php } ?>
         </form>
         <footer>
             <div class="footerwrrap">

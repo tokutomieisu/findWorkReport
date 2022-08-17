@@ -3,7 +3,6 @@ session_start();
 
 if(!empty($_GET['af_id'])){
     $_SESSION["af_id"] = $_GET['af_id'];
-    echo $_GET['af_id'];
 }
 if(!empty($_SESSION["COMPANYNAME"])){
     $companyName = $_SESSION["COMPANYNAME"];
@@ -45,7 +44,6 @@ if(!empty($_SESSION["COMPANYNAME"])){
                     <li><a href="findWorkReport_mb.php?a_cd=3"><span>面接</span><img src="img/arrow.png" alt="" class="li_img"></a></li>
                     <li><a href="findWorkReport_mb.php?a_cd=4"><span>その他</span><img src="img/arrow.png" alt="" class="li_img"></a></li>
                 </ul>
-
             </div>
         </form>
         <footer>

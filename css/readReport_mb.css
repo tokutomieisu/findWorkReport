@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+/* 上書き用 */
+
+.text {
+    margin: 26% auto 19% auto;
+}
+
+.report {
+    width: 100%;
+    text-align: left;
+}
+
+.report th,
+.report td {
+    height: 6vh;
+}
+
+.report th {
+    background-color: #03a9f42b;
+    padding-left: 6%;
+}
+
+.report td {
+    padding: 10px 0px 10px 9%;
+    font-size: 17px;
+}
