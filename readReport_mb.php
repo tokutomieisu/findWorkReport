@@ -270,7 +270,7 @@ else if ($classification2 == "グループワーク") {
         </form>
         <footer>
             <div class="footerwrrap">
-                <p class="icon"><a href="mb_search.html"><img src="img/search.png" alt=""></a></p>
+                <p class="icon"><a href="search_mb.php"><img src="img/search.png" alt=""></a></p>
             </div>
             <div class="footertext">
                 <p class="icontext">検索</p>
