@@ -18,3 +18,10 @@ function isRegNum2(obj) {
         document.getElementById("btn").disabled = true;
     }
 }
+
+function cartAdd(obj) {
+    var btn = document.getElementById("btn");
+    if (btn.disabled == true) {
+        obj.value = "カート追加済";
+    }
+}

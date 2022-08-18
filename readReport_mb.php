@@ -164,9 +164,7 @@ else if ($classification2 == "グループワーク") {
     <section class="main">
         <form action="searchResult.php" method="get">
             <div class="text">
-
                 <table class="report">
-
                     <tr>
                         <th>企業名</th>
                     </tr>

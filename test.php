@@ -96,7 +96,6 @@ $thoughts = !empty($_SESSION['THOUGHTS']) ? $_SESSION['THOUGHTS'] : "";
     <link rel="stylesheet" type="text/css" href="css/test.css">
     <link rel="stylesheet" type="text/css" href="css/base.css">
     <link rel="stylesheet" type="text/css" href="css/recordBase.css">
-    <!-- <link rel="stylesheet" type="text/css" href="css/recordCommon.css"> -->
     <link rel="stylesheet" type="text/css" href="css/recodeTop.css">
 </head>
 
@@ -173,7 +172,7 @@ $thoughts = !empty($_SESSION['THOUGHTS']) ? $_SESSION['THOUGHTS'] : "";
             </form>
         </div>
     </section>
-    <script src="./js/login.js"></script>
+    <script src="./js/test.js"></script>
 </body>
 
 </html>
