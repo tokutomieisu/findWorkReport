@@ -25,3 +25,23 @@ function cartAdd(obj) {
         obj.value = "カート追加済";
     }
 }
+
+$("document").ready(function() {});
+
+function getCheckedLabelText() {
+    var inputCount = elementCount();
+
+    for (var i = 0; i < inputCount; i++) {
+        if ($("#" + i).prop('checked') == true) {
+            $("#lbl_" + i).text() = "カート追加済";
+        }
+    }
+}
+
+function elementCount() {
+    var cnt = 0;
+    $("input").each(function() {
+        ++cnt;
+    });
+    return cnt;
+}

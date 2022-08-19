@@ -1,5 +1,4 @@
 @charset "UTF-8";
-
 #main {
     display: flex;
     justify-content: center;
@@ -9,13 +8,11 @@
 
 .t_left {
     text-align: start;
-
 }
 
 p.t_left {
     margin: 6px 0px 0px 0px;
 }
-
 
 .record_t {
     font-size: 22px;
@@ -77,7 +74,6 @@ p.t_left {
 }
 
 .radio_ls {
-
     margin-right: 14px;
     height: 20px;
     vertical-align: middle;

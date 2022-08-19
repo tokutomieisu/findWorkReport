@@ -27,7 +27,7 @@ SELECT
 FROM
     student_company;
 
-SELECT c.c_name
+SELECT c.c_name ,c_address , c_mail
 FROM mt_student s
 INNER JOIN student_company sc ON s.student_id = sc.s_id
 INNER JOIN mt_company c ON c.c_id = sc.c_id

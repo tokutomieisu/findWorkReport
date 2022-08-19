@@ -46,7 +46,7 @@ try {
     $stmt = $dbh->query($query);
 
     $query2 = "SELECT name FROM mt_flow";
-    $stmt2 = $dbh->query($query2); 
+    $stmt2 = $dbh->query($query2);
 
 
 
@@ -75,7 +75,6 @@ for ($i = 0; $i < 8; $i++) {
     $checks[$i] = "";
     //配列（筆記用具、印鑑、卒業見込証明書）
     $columns[$i] = $val[$i]["name"];
-
 }
 for ($j = 0; $j < 7; $j++) {
     $checks2[$j] = "";
@@ -149,7 +148,7 @@ $thoughts = !empty($_SESSION['THOUGHTS']) ? $_SESSION['THOUGHTS'] : "";
 
     <a href="recodeTop.php" class="backimg"><img src="img/back.png" alt="back"></a>
     <section class="main">
-        <div class="text">
+        <div class="text an2-fadeup">
             <h1 class="t_left">説明会</h1>
             <h2 class="t_left">区分</h2>
             <form action="recordCheck.php" method="get">
@@ -179,7 +178,7 @@ $thoughts = !empty($_SESSION['THOUGHTS']) ? $_SESSION['THOUGHTS'] : "";
                 </p>
                 <h2>選考フロー</h2>
                 <div class="record_t">
-                <?php
+                    <?php
                     for ($j = 0; $j < 7; $j++) { ?>
                         <label for="j.<?= $j ?>" class="radio_l"><input class="checkbox" <?= $checks2[$j] ?> type="checkbox" id="j.<?= $j ?>" name="flow[]" value="<?= $columns2[$j] ?>"><?= $columns2[$j] ?></label>
                     <?php } ?>
@@ -191,8 +190,20 @@ $thoughts = !empty($_SESSION['THOUGHTS']) ? $_SESSION['THOUGHTS'] : "";
                         <label for="<?= $i ?>" class="radio_l"><input class="checkbox" <?= $checks[$i] ?> type="checkbox" id="<?= $i ?>" name="property[]" value="<?= $columns[$i] ?>"><?= $columns[$i] ?></label>
                     <?php } ?>
                 </p>
+                <!-- <h2 class="t_left">レビュー</h2>
+                <div class="stars article record_t">
+                    <span>
+                        <input id="review01" type="radio" name="reviews" value="5"><label for="review01">★</label>
+                        <input id="review02" type="radio" name="reviews" value="4"><label for="review02">★</label>
+                        <input id="review03" type="radio" name="reviews" value="3"><label for="review03">★</label>
+                        <input id="review04" type="radio" name="reviews" value="2"><label for="review04">★</label>
+                        <input id="review05" type="radio" name="reviews" value="1"><label for="review05">★</label>
+                    </span>
+                </div> -->
                 <h2 class="t_left">感想</h2>
-                <textarea rows="10" cols="60" class="largeText" name="thoughts"><?php echo $thoughts ?></textarea>
+                <textarea rows="10" cols="60" class="largeText" name="thoughts" required><?php echo $thoughts ?></textarea>
+                <div class="review">
+                </div>
                 <p><button type="submit" name="btn" id="btnjs" class="btn btn_narrow" class="button" value="send">確認画面へ</button></p>
             </form>
         </div>

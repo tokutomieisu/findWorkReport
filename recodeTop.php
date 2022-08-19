@@ -231,7 +231,6 @@ $dbh = null;
                         <h2 class="t_left" for="industry">業種</h2>
                         <p class="t_left"><select class="record_select" name="industry" id="industry">
                                 <!--データベースで業種CDを取ってきて表示する-->
-                                <option value="">---</option>
                                 <?php foreach ($stmt1 as $row) { ?>
                                     <option value="<?php echo $row["in_cd"]; ?>"><?php echo $row["in_name"]; ?></option>
                                 <?php } ?>
@@ -243,7 +242,6 @@ $dbh = null;
                         <h2 class="t_left" for="occupation">職種</h2>
                         <p class="t_left"><select class=" record_select" name="occupation" id="occupation">
                                 <!--データベースで職種CDを取ってきて表示する-->
-                                <option value="">---</option>
                                 <?php foreach ($stmt2 as $row) { ?>
                                     <option value="<?php echo $row["o_cd"]; ?>"><?php echo $row["o_name"]; ?></option>
                                 <?php } ?>
@@ -277,7 +275,6 @@ $dbh = null;
 
     </section>
     <script src="js/recordToop.js"></script>
-    <script src="js/selectSort.js"></script>
 </body>
 
 </html>
