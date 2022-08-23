@@ -26,17 +26,12 @@ if (!empty($uId) && !empty($uPass)) {
 
     try {
         $dbh = new PDO($dsn, $username, $password);
-
-        $sql = "SELECT * FROM mt_student WHERE no = '$uId' AND pass = '$uPass'";
-        $stmt = $dbh->query($sql);
-        $count = $stmt->rowCount();
     } catch (PDOException $e) {
         $msg = $e->getMessage();
     }
-
-
-    // 接続を閉じる
-    $dbh = null;
+    $sql = "SELECT * FROM mt_student WHERE no = '$uId' AND pass = '$uPass'";
+    $stmt = $dbh->query($sql);
+    $count = $stmt->rowCount();
 
 
     if ($count == 0) {
@@ -44,9 +39,24 @@ if (!empty($uId) && !empty($uPass)) {
     } else {
         foreach ($stmt as $row) {
             $_SESSION['USERID'] = $row['student_id'];
+            $studentId =  $row['student_id'];
             $_SESSION['USERNO'] = $row['no'];
             $_SESSION['USERNAME'] = $row['name'];
+
+            $f_sql = "SELECT c.c_name FROM mt_student s INNER JOIN student_company sc ON s.student_id = sc.s_id INNER JOIN mt_company c ON c.c_id = sc.c_id WHERE s.student_id = '$studentId'";
+            $f_stmt = $dbh->query($f_sql);
+            $f_count = $f_stmt->rowCount();
+            $valflo = $f_stmt->fetchAll();
+            if ($f_count != 0) {
+                for ($j = 0; $j < $f_count; $j++) {
+                    $f_c_name[$j] = $valflo[$j]['c_name'];
+                }
+                $_SESSION['f_c_name'] = $f_c_name;
+            }
             header('Location: ./search_mb.php');
+            // 接続を閉じる
+            $dbh = null;
+
             exit();     //以後の処理をしない
         }
     }

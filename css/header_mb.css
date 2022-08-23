@@ -1,11 +1,12 @@
 @charset "UTF-8";
-
 body {
     margin: 0;
     padding: 0;
 }
 
+
 /* header */
+
 header {
     position: fixed;
     top: 0;
@@ -29,6 +30,13 @@ header {
     margin-left: 5%;
 }
 
+.h_text_star {
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: #4d5156;
+    width: 90%;
+    margin-left: 5%;
+}
 
 .flex {
     display: flex;
@@ -39,14 +47,13 @@ header {
     width: 100%;
 }
 
+
 /* .noticeMark {
     position: absolute;
     right: 50px;
     width: fit-content;
     height: 26px;
 } */
-
-
 
 header p {
     color: #3c3c3c;

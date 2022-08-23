@@ -28,9 +28,9 @@ foreach ($f_c_name as $c_name) {
 
 if (isset($_POST['hidden'])) {
     if (isset($_POST['review'])) {
-        $f_judge = "del";
-    } else {
         $f_judge = "add";
+    } else {
+        $f_judge = "del";
     }
 }
 
@@ -46,7 +46,7 @@ try {
     $dbh = new PDO($dsn, $user, $password);
 
     // クエリの実行
-    $infoSession = "SELECT f.j_id  , f.day , i.classification FROM findworkreport f INNER JOIN information_session i  ON f.j_id = i.j_id WHERE f.c_id = '$companyId' AND f.af_id = '$affiliationId' AND f.a_cd = '1' ORDER BY day DESC;";
+    $infoSession = "SELECT f.j_id  , f.day , i.classification FROM findworkreport f INNER JOIN information_session i  ON f.j_id = i.j_id WHERE c_id = '$companyId' AND af_id = '$affiliationId' AND a_cd = '1' ORDER BY day DESC;";
     $stmt1 = $dbh->query($infoSession);
 
     $tests = "SELECT f.j_id  , f.day , t.classification FROM findworkreport f INNER JOIN tests t  ON f.j_id = t.j_id WHERE cf._id = '$companyId' AND f.af_id = '$affiliationId' AND f.a_cd = '2' ORDER BY day DESC;
@@ -143,11 +143,12 @@ foreach ($f_c_name as $c_name) {
     <section class="main">
         <div class="text">
             <form action="findWorkReport.php" method="post" name="myForm">
-                <h1><?php echo $companyName ?>
+                <div class="flex starflex">
+                    <h1><?= $companyName ?> </h1>
                     <span class="star">
-                        <input id="review06" type="checkbox" name="review" value="1" <?= $f_check ?>><label for="review06" onclick="runOpenstrt()">★</label>
+                        <input id="review06" type="checkbox" name="review" value="1" <?= $f_check ?> onclick="runOpenstrt()"><label for="review06"><span class="set"><span id="s_star">★</span><span class="block">検討リスト</span></span></label>
                     </span>
-                </h1>
+                </div>
                 <div class="area">
                     <input type="radio" name="tabName" id="tab1" checked value="1">
                     <label class="tabClass" for="tab1">説明会</label>

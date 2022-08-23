@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+$userId = $_SESSION['USERID'];
+
 if (!empty($_GET['a_cd'])) {
     $_SESSION["a_cd"] = $_GET['a_cd'];
     $a_cd = $_GET['a_cd'];
@@ -18,6 +20,27 @@ if (!empty($_SESSION["COMPANYID"])) {
 
 if (!empty($_SESSION["COMPANYNAME"])) {
     $companyName = $_SESSION["COMPANYNAME"];
+}
+
+if (!empty($_SESSION['f_c_name'])) {
+    $f_c_name = $_SESSION['f_c_name'];
+}
+
+$f_check = "";
+$f_judge = "";
+
+foreach ($f_c_name as $c_name) {
+    if ($c_name == $companyName) {
+        $f_check = "checked";
+    }
+}
+
+if (isset($_POST['hidden1'])) {
+    if (isset($_POST['review'])) {
+        $f_judge = "add";
+    } else {
+        $f_judge = "del";
+    }
 }
 
 //DB接続準備
@@ -53,9 +76,23 @@ try {
     if ($count == 0) {
         $notStmt = "レポートはありません。";
         $back = "戻る";
-    }else{
+    } else {
         $notStmt = "";
         $back = "";
+    }
+
+    if ($f_judge == "add") {
+        $sql1 = "INSERT INTO student_company (s_id, c_id) VALUES('$userId', '$companyId');";
+        $f_c_name[] = $companyName;
+        $stmt1 = $dbh->query($sql1);
+        $_SESSION['f_c_name'] = $f_c_name;
+    } else if ($f_judge == "del") {
+        $sql1 = "DELETE FROM student_company WHERE c_id = '$companyId' AND s_id = '$userId';";
+        $stmt1 = $dbh->query($sql1);
+        $key = array_search($companyName, $f_c_name);
+        unset($f_c_name[$key]);
+        $f_c_name = array_values($f_c_name);
+        $_SESSION['f_c_name'] = $f_c_name;
     }
 
     // 接続を閉じる(※DBからデータを取得出来た時点で接続を切る)
@@ -63,6 +100,14 @@ try {
 } catch (PDOException $e) {
     print("データベースの接続に失敗しました" . $e->getMessage());
     die();
+}
+
+$f_check = "";
+
+foreach ($f_c_name as $c_name) {
+    if ($c_name == $companyName) {
+        $f_check = "checked";
+    }
 }
 
 ?>
@@ -78,17 +123,24 @@ try {
     <link rel="stylesheet" type="text/css" href="css/header_mb.css">
     <link rel="stylesheet" type="text/css" href="css/footer_mb.css">
     <link rel="stylesheet" type="text/css" href="css/searchResult_mb.css">
+    <link rel="stylesheet" type="text/css" href="css/favorite_mb.css">
     <title>レポート選択</title>
 </head>
 
 <body>
     <header>
         <div class="headwrrap">
-            <div class="flex h_textarea">
-                <a href="div_mb.php" class="backimg"><img src="img/back_mb.png" alt="back"></a>
-                <p class="h_text"><?= $companyName ?>&ensp;<?= $a_name ?></p>
-            </div>
-
+            <form action="findWorkReport_mb.php" method="post" name="myForm">
+                <div class="flex h_textarea">
+                    <a href="div_mb.php" class="backimg"><img src="img/back_mb.png" alt="back"></a>
+                    <p class="h_text_star"><?= $companyName ?>&ensp;<?= $a_name ?>
+                        <span class="star">
+                            <input id="review06" type="checkbox" name="review" value="1" <?= $f_check ?> onclick="runOpenstrt()"><label for="review06">★</label>
+                        </span>
+                    </p>
+                </div>
+                <input type="hidden" name="hidden1" value="hidden"> 
+            </form>
         </div>
     </header>
     <section class="main">
@@ -110,6 +162,6 @@ try {
             </div>
         </footer>
     </section>
+    <script src="js/favorite.js"></script>
 </body>
-
 </html>

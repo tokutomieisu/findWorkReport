@@ -85,7 +85,7 @@ try {
     } else if ($f_judge == "del") {
         $sql1 = "DELETE FROM student_company WHERE c_id = '$companyId' AND s_id = '$userId';";
         $stmt1 = $dbh->query($sql1);
-        $key = array_search($companyId, $f_c_name);
+        $key = array_search($companyName, $f_c_name);
         unset($f_c_name[$key]);
         $f_c_name = array_values($f_c_name);
         $_SESSION['f_c_name'] = $f_c_name;
@@ -147,11 +147,13 @@ foreach ($f_c_name as $c_name) {
     <section class="main">
         <div class="text">
             <form action="readStudentInfo.php" method="post" name="myForm">
-                <h1><?= $title ?>
-                    <span class="star">
-                        <input id="review06" type="checkbox" name="review" value="1" <?= $f_check ?> onclick="runOpenstrt()"><label for="review06">★</label>
+                <div class="flex starflex">
+                    <h1><?= $title ?> </h1>
+                    <span class="star ">
+                        <input id="review06" type="checkbox" name="review" value="1" <?= $f_check ?> onclick="runOpenstrt()"><label for="review06"><span class="set"><span id="s_star">★</span><span class="block">お気に入り</span></span></label>
                     </span>
-                </h1>
+                </div>
+
                 <div class="area">
                     <?php foreach ($stmt as $row) { ?>
                         <a href="findWorkReport.php?af_id=<?= $row["af_id"] ?>" class="category2 btn_a a_list"><?= date('Y年n月d日', strtotime($row["day"])) . "&emsp;" . $row["curriculum"] . "&nbsp;" . $row["course"]; ?></a><br>

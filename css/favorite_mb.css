@@ -1,13 +1,13 @@
         /* お気に入り */
-
+        
         .star input[type='checkbox']:checked~label {
             color: #F8C601;
         }
-
+        
         .star input[type='checkbox'] {
             display: none;
         }
-
+        
         .star label {
             color: #D2D2D2;
             /* 未選択の星をグレー色に指定 */
@@ -18,32 +18,7 @@
             cursor: pointer;
             /* カーソルが上に乗ったときに指の形にする */
         }
-
-        .block {
-            display: block;
-            font-size: 10px;
-            color: black;
-            letter-spacing: 1px;
-            text-align: end;
-            margin-top: -1.5%;
-        }
-
-        .starflex {
-            align-items: end;
-        }
-
-        #s_star {
-            height: 30px;
-        }
-
-        .set {
-            display: inline-block;
-        }
-
-        h1 {
-            margin: 150px 13px 37px 22.5%;
-        }
-
+        
         .star {
-            margin-bottom: 20px;
+            display: inline;
         }

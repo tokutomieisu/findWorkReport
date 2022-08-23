@@ -208,7 +208,6 @@ else if ($classification2 == "グループワーク") {
     <link rel="stylesheet" type="text/css" href="css/backImg.css">
     <link rel="stylesheet" type="text/css" href="css/check.css">
     <link rel="stylesheet" type="text/css" href="css/readStudentInfo.css">
-    <link rel="stylesheet" type="text/css" href="css/favorite.css">
 
 </head>
 
@@ -233,77 +232,68 @@ else if ($classification2 == "グループワーク") {
 
     <section class="main">
         <div class="text">
-            <form action="readReport.php" method="post" name="myForm">
-                <h1><?= date('Y年n月d日', strtotime($val["day"])) . "&emsp;" . $val['classification'] ?>
-                    <span class="star">
-                        <input id="review06" type="checkbox" name="review" value="1" <?= $f_check ?>><label for="review06" onclick="runOpenstrt()">★</label>
-                    </span>
-                </h1>
+            <h1><?= date('Y年n月d日', strtotime($val["day"])) . "&emsp;" . $val['classification'] ?>
+            </h1>
+            <table border="1" class="report">
+                <tr>
+                    <th>企業名</th>
+                    <td><?= $val['c_name'] ?></td>
+                </tr>
 
+                <tr>
+                    <th>日時</th>
+                    <td><?= date('Y年n月d日', strtotime($val["day"])) ?></td>
+                </tr>
 
-                <table border="1" class="report">
+                <tr>
+                    <th>形態</th>
+                    <td><?= $val['v_name'] ?></td>
+                </tr>
+
+                <tr>
+                    <th>活動内容</th>
+                    <td><?= $val['a_name'] ?></td>
+                </tr>
+
+                <tr>
+                    <th>区分</th>
+                    <td><?= $val['classification'] ?></td>
+                </tr>
+                <?php $i = 0; ?>
+                <?php foreach ($strClassification2_name as $name) { ?>
                     <tr>
-                        <th>企業名</th>
-                        <td><?= $val['c_name'] ?></td>
+                        <th><?= $name ?></th>
+                        <td><?= $reportText[$i] ?></td>
                     </tr>
+                    <?php $i++; ?>
+                <?php  } ?>
 
+                <?php if ($aId == '1') { ?>
                     <tr>
-                        <th>日時</th>
-                        <td><?= date('Y年n月d日', strtotime($val["day"])) ?></td>
-                    </tr>
-
-                    <tr>
-                        <th>形態</th>
-                        <td><?= $val['v_name'] ?></td>
-                    </tr>
-
-                    <tr>
-                        <th>活動内容</th>
-                        <td><?= $val['a_name'] ?></td>
-                    </tr>
-
-                    <tr>
-                        <th>区分</th>
-                        <td><?= $val['classification'] ?></td>
-                    </tr>
-                    <?php $i = 0; ?>
-                    <?php foreach ($strClassification2_name as $name) { ?>
-                        <tr>
-                            <th><?= $name ?></th>
-                            <td><?= $reportText[$i] ?></td>
-                        </tr>
-                        <?php $i++; ?>
-                    <?php  } ?>
-
-                    <?php if ($aId == '1') { ?>
-                        <tr>
-                            <th>選考フロー</th>
-                            <td><?php foreach ($flow as $class2) { ?>
-                                    <?php $class2 = next($flow) ? $class2 . " →" : $class2 ?>
-                                    <?php echo $class2; ?>
-                                <?php } ?>
-                            </td>
-                        </tr>
-                    <?php } ?>
-                    <tr>
-                        <th>持参物</th>
-                        <td><?php foreach ($property as $class) { ?>
-                                <?php $class = next($property) ? $class . "," : $class ?>
-                                <?php echo $class; ?>
+                        <th>選考フロー</th>
+                        <td><?php foreach ($flow as $class2) { ?>
+                                <?php $class2 = next($flow) ? $class2 . " →" : $class2 ?>
+                                <?php echo $class2; ?>
                             <?php } ?>
                         </td>
                     </tr>
+                <?php } ?>
+                <tr>
+                    <th>持参物</th>
+                    <td><?php foreach ($property as $class) { ?>
+                            <?php $class = next($property) ? $class . "," : $class ?>
+                            <?php echo $class; ?>
+                        <?php } ?>
+                    </td>
+                </tr>
 
-                    <tr>
-                        <th>感想</th>
-                        <td><?= $val['remarks'] ?></td>
-                    </tr>
-                </table>
-                <input type="hidden" name="hidden" value="hidden">
-            </form>
+                <tr>
+                    <th>感想</th>
+                    <td><?= $val['remarks'] ?></td>
+                </tr>
+            </table>
         </div>
     </section>
-    <script src="js/favorite.js"></script>
 </body>
 
 </html>
