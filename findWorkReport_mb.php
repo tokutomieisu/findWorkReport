@@ -84,11 +84,11 @@ try {
     if ($f_judge == "add") {
         $sql1 = "INSERT INTO student_company (s_id, c_id) VALUES('$userId', '$companyId');";
         $f_c_name[] = $companyName;
-        $stmt1 = $dbh->query($sql1);
+        $stmtf = $dbh->query($sql1);
         $_SESSION['f_c_name'] = $f_c_name;
     } else if ($f_judge == "del") {
         $sql1 = "DELETE FROM student_company WHERE c_id = '$companyId' AND s_id = '$userId';";
-        $stmt1 = $dbh->query($sql1);
+        $stmtf = $dbh->query($sql1);
         $key = array_search($companyName, $f_c_name);
         unset($f_c_name[$key]);
         $f_c_name = array_values($f_c_name);
