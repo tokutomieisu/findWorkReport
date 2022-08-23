@@ -40,40 +40,42 @@ if (!empty($uId) && !empty($uPass)) {
         $msg = $e->getMessage();
     }
 
-    // $sql = "SELECT * FROM mt_student WHERE no = :id";
-    // $stmt = $dbh->prepare($sql);
-    // $stmt->bindValue(':id', $uId);
-    // $stmt->execute();
-    // $member = $stmt->fetch();
+
     $sql = "SELECT * FROM mt_student WHERE no = '$uId' AND pass = '$uPass'";
     $stmt = $dbh->query($sql);
     $count = $stmt->rowCount();
-    // 接続を閉じる
-    $dbh = null;
 
-    //合ってるかチェック
-    // if ($member) {
-    //     if ($uPass == $member['pass']) {
-    //         //ユーザ名をセッションに保存
-    //         $_SESSION['USERID'] = $member['student_id'];
-    //         $_SESSION['USERNAME'] = $member['name'];
-    //         header('Location: ./select.php');
-    //         exit();     //以後の処理をしない
-    //     } 
-    // }else {
-    //     $msg = "入力情報が違います。";      //具体的にどこが違うか書くとヒントになりそうなので…
-    // }
+
+
     if ($count == 0) {
         $msg = "入力情報が違います。";
     } else {
         foreach ($stmt as $row) {
             $_SESSION['USERID'] = $row['student_id'];
+            $studentId =  $row['student_id'];
             $_SESSION['USERNO'] = $row['no'];
             $_SESSION['USERNAME'] = $row['name'];
+
+
+            $f_sql = "SELECT c.c_name FROM mt_student s INNER JOIN student_company sc ON s.student_id = sc.s_id INNER JOIN mt_company c ON c.c_id = sc.c_id WHERE s.student_id = '$studentId'";
+            $f_stmt = $dbh->query($f_sql);
+            $f_count = $f_stmt->rowCount();
+            $valflo = $f_stmt->fetchAll();
+            if ($f_count != 0) {
+                    for ($j = 0; $j < $f_count; $j++) {
+                        $f_c_name[$j] = $valflo[$j]['c_name'];
+                    }
+                $_SESSION['f_c_name'] = $f_c_name;
+            }
             header('Location: ./select.php');
+    // 接続を閉じる
+    $dbh = null;
             exit();     //以後の処理をしない
         }
     }
+
+    // 接続を閉じる
+    $dbh = null;
 }
 ?>
 

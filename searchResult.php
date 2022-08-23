@@ -9,10 +9,12 @@ $select =  $_SESSION['SELECT'];
 //入力フォームからデータ受け取り
 if (!empty($_SESSION['SELECTCOMPANYNAME'])) {
     $company = $_SESSION['SELECTCOMPANYNAME'];
-} else {
+} else if(!empty($_GET['company'])) {
     $company = $_GET['company'];
     $_SESSION['SELECTCOMPANYNAME'] = $company;
     $_SESSION['COMPANYNAME'] = $company;
+}else{
+    $company = "";
 }
 // echo "company:" . $company, "　";
 $count = 0;

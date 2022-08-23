@@ -4,17 +4,49 @@ session_start();
 // $_SESSION["COMPANYNAME"] = "HAL株式会社";
 $companyId = $_SESSION["COMPANYID"];
 $userName = $_SESSION["USERNAME"];
+$userId = $_SESSION['USERID'];
 $companyName = $_SESSION["COMPANYNAME"];
 
 if (isset($_GET['j_id'])) {
     $jId = $_GET['j_id'];
+    $_SESSION['SELECTJID'] = $jId;
+} else {
+    $jId = $_SESSION['SELECTJID'];
 }
-if (isset($_GET['a_cd'])) {
-    $aId = $_GET['a_cd'];
+
+if (isset($_GET['a_id'])) {
+    $aId = $_GET['a_id'];
+    $_SESSION['SELECTAID'] = $aId;
+} else {
+    $aId = $_SESSION['SELECTAID'];
 }
-// echo $jId;
-// $jId = '8';
-// $aId = '3';
+
+if (!empty($_SESSION['f_c_name'])) {
+    $f_c_name = $_SESSION['f_c_name'];
+}
+
+$f_check = "";
+$f_judge = "";
+
+foreach ($f_c_name as $c_name) {
+    if ($c_name == $companyName) {
+        $f_check = "checked";
+    }
+}
+
+
+
+
+
+
+if (isset($_POST['hidden'])) {
+    if (isset($_POST['review'])) {
+        $f_judge = "del";
+    } else {
+        $f_judge = "add";
+    }
+}
+
 
 //DB接続準備
 $dsn    = 'mysql:host=localhost;dbname=db26;charset=utf8';
@@ -47,12 +79,34 @@ try {
         $count2 = $stmtflo->rowCount();
     }
 
+    if ($f_judge == "add") {
+        $sql1 = "INSERT INTO student_company (s_id, c_id) VALUES('$userId', '$companyId');";
+        $f_c_name[] = $companyName;
+        $stmtf = $dbh->query($sql1);
+        $_SESSION['f_c_name'] = $f_c_name;
+    } else if ($f_judge == "del") {
+        $sql1 = "DELETE FROM student_company WHERE c_id = '$companyId' AND s_id = '$userId';";
+        $stmtf = $dbh->query($sql1);
+        $key = array_search($companyName, $f_c_name);
+        unset($f_c_name[$key]);
+        $f_c_name = array_values($f_c_name);
+        $_SESSION['f_c_name'] = $f_c_name;
+    }
+
 
     // 接続を閉じる(※DBからデータを取得出来た時点で接続を切る)
     $dbh = null;
 } catch (PDOException $e) {
     print("データベースの接続に失敗しました" . $e->getMessage());
     die();
+}
+
+$f_check = "";
+
+foreach ($f_c_name as $c_name) {
+    if ($c_name == $companyName) {
+        $f_check = "checked";
+    }
 }
 
 /****************************
@@ -68,7 +122,7 @@ $classification2 = $val["classification"];
 for ($i = 0; $i < $count; $i++) {
     $property[$i] = $valpro[$i]['name'];
 }
-if(empty($property[0])){
+if (empty($property[0])) {
     $property = array("");
 }
 
@@ -79,7 +133,7 @@ if ($aId == "1") {
         $flow[$j] = $valflo[$j]['name'];
         // echo $flow[$j];
     }
-    if(empty($flow[0])){
+    if (empty($flow[0])) {
         $flow = array("");
     }
 }
@@ -154,6 +208,7 @@ else if ($classification2 == "グループワーク") {
     <link rel="stylesheet" type="text/css" href="css/backImg.css">
     <link rel="stylesheet" type="text/css" href="css/check.css">
     <link rel="stylesheet" type="text/css" href="css/readStudentInfo.css">
+    <link rel="stylesheet" type="text/css" href="css/favorite.css">
 
 </head>
 
@@ -178,70 +233,77 @@ else if ($classification2 == "グループワーク") {
 
     <section class="main">
         <div class="text">
-            <h1><?= date('Y年n月d日', strtotime($val["day"])) . "&emsp;" . $val['classification'] ?></h1>
+            <form action="readReport.php" method="post" name="myForm">
+                <h1><?= date('Y年n月d日', strtotime($val["day"])) . "&emsp;" . $val['classification'] ?>
+                    <span class="star">
+                        <input id="review06" type="checkbox" name="review" value="1" <?= $f_check ?>><label for="review06" onclick="runOpenstrt()">★</label>
+                    </span>
+                </h1>
 
 
-            <table border="1" class="report">
-                <tr>
-                    <th>企業名</th>
-                    <td><?= $val['c_name'] ?></td>
-                </tr>
-
-                <tr>
-                    <th>日時</th>
-                    <td><?= date('Y年n月d日', strtotime($val["day"])) ?></td>
-                </tr>
-
-                <tr>
-                    <th>形態</th>
-                    <td><?= $val['v_name'] ?></td>
-                </tr>
-
-                <tr>
-                    <th>活動内容</th>
-                    <td><?= $val['a_name'] ?></td>
-                </tr>
-
-                <tr>
-                    <th>区分</th>
-                    <td><?= $val['classification'] ?></td>
-                </tr>
-                <?php $i = 0; ?>
-                <?php foreach ($strClassification2_name as $name) { ?>
+                <table border="1" class="report">
                     <tr>
-                        <th><?= $name ?></th>
-                        <td><?= $reportText[$i] ?></td>
+                        <th>企業名</th>
+                        <td><?= $val['c_name'] ?></td>
                     </tr>
-                    <?php $i++; ?>
-                <?php  } ?>
 
-                <?php if ($aId == '1') { ?>
                     <tr>
-                        <th>選考フロー</th>
-                        <td><?php foreach ($flow as $class2) { ?>
-                                <?php $class2 = next($flow) ? $class2 . " →" : $class2 ?>
-                                <?php echo $class2; ?>
+                        <th>日時</th>
+                        <td><?= date('Y年n月d日', strtotime($val["day"])) ?></td>
+                    </tr>
+
+                    <tr>
+                        <th>形態</th>
+                        <td><?= $val['v_name'] ?></td>
+                    </tr>
+
+                    <tr>
+                        <th>活動内容</th>
+                        <td><?= $val['a_name'] ?></td>
+                    </tr>
+
+                    <tr>
+                        <th>区分</th>
+                        <td><?= $val['classification'] ?></td>
+                    </tr>
+                    <?php $i = 0; ?>
+                    <?php foreach ($strClassification2_name as $name) { ?>
+                        <tr>
+                            <th><?= $name ?></th>
+                            <td><?= $reportText[$i] ?></td>
+                        </tr>
+                        <?php $i++; ?>
+                    <?php  } ?>
+
+                    <?php if ($aId == '1') { ?>
+                        <tr>
+                            <th>選考フロー</th>
+                            <td><?php foreach ($flow as $class2) { ?>
+                                    <?php $class2 = next($flow) ? $class2 . " →" : $class2 ?>
+                                    <?php echo $class2; ?>
+                                <?php } ?>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                    <tr>
+                        <th>持参物</th>
+                        <td><?php foreach ($property as $class) { ?>
+                                <?php $class = next($property) ? $class . "," : $class ?>
+                                <?php echo $class; ?>
                             <?php } ?>
                         </td>
                     </tr>
-                <?php } ?>
-                <tr>
-                    <th>持参物</th>
-                    <td><?php foreach ($property as $class) { ?>
-                            <?php $class = next($property) ? $class . "," : $class ?>
-                            <?php echo $class; ?>
-                        <?php } ?>
-                    </td>
-                </tr>
 
-                <tr>
-                    <th>感想</th>
-                    <td><?= $val['remarks'] ?></td>
-                </tr>
-
-            </table>
+                    <tr>
+                        <th>感想</th>
+                        <td><?= $val['remarks'] ?></td>
+                    </tr>
+                </table>
+                <input type="hidden" name="hidden" value="hidden">
+            </form>
         </div>
     </section>
+    <script src="js/favorite.js"></script>
 </body>
 
 </html>
