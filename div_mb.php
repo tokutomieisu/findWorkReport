@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-if(!empty($_GET['af_id'])){
+if (!empty($_GET['af_id'])) {
     $_SESSION["af_id"] = $_GET['af_id'];
 }
-if(!empty($_SESSION["COMPANYNAME"])){
+if (!empty($_SESSION["COMPANYNAME"])) {
     $companyName = $_SESSION["COMPANYNAME"];
 }
 
@@ -27,11 +27,17 @@ if(!empty($_SESSION["COMPANYNAME"])){
 <body>
     <header>
         <div class="headwrrap">
-            <div class="flex h_textarea">
-                <a href="readStudentInfo_mb.php" class="backimg"><img src="img/back_mb.png" alt="back"></a>
-                <p class="h_text"><?= $companyName ?></p>
+            <div class="flex">
+                <p><img src="img/aicon.png" alt="logo"></p>
+                <p><?php echo $userName; ?>&nbsp;様</p>
             </div>
-
+            <nav>
+                <ul>
+                    <li><a href="favoriteCompany.php">検討リスト</a>
+                    <li><a href="select.php">TOP</a>
+                    <li class="logout"><a href="index.html">ログアウト</a>
+                </ul>
+            </nav>
         </div>
     </header>
     <section class="main">

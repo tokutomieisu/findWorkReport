@@ -219,10 +219,10 @@ else if ($classification2 == "グループワーク") {
                 <p><img src="img/aicon.png" alt="logo"></p>
                 <p><?php echo $userName; ?>&nbsp;様</p>
             </div>
-
             <nav>
                 <ul>
-                    <li><a href="search.php">企業検索</a>
+                    <li><a href="favoriteCompany.php">検討リスト</a>
+                    <li><a href="select.php">TOP</a>
                     <li class="logout"><a href="index.html">ログアウト</a>
                 </ul>
             </nav>

@@ -60,10 +60,10 @@ else {
                 <p><img src="img/aicon.png" alt="logo"></p>
                 <p><?php echo $userName; ?>&nbsp;様</p>
             </div>
-
             <nav>
                 <ul>
-                    <li><a href="search.php?record">企業検索</a>
+                    <li><a href="favoriteCompany.php">検討リスト</a>
+                    <li><a href="select.php">TOP</a>
                     <li class="logout"><a href="index.html">ログアウト</a>
                 </ul>
             </nav>
@@ -74,40 +74,40 @@ else {
 
     <div class="text">
         <h1 class="text_left"><?php echo $msg; ?></h1> <!-- 通った処理に合わせたメッセージ-->
-        <?php if($msg == "以下の内容で登録申請します。"){ ?>
-        <table border="1">
-            <tr>
-                <th>企業名</th>
-                <td><?php echo $companyName; ?></td>
-            </tr>
-            <tr>
-                <th>略称企業名</th>
-                <td><?php echo $companyNames; ?></td>
-            </tr>
-            <tr>
-                <th>郵便番号</th>
-                <td><?php echo $companyPost; ?></td>
-            </tr>
-            <tr>
-                <th>住所</th>
-                <td><?php echo $companyAddress; ?></td>
-            </tr>
-            <tr>
-                <th>電話番号</th>
-                <td><?php echo $companyTel; ?></td>
-            </tr>
-            <tr>
-                <th>メールアドレス</th>
-                <td><?php echo $companyMail; ?></td>
-            </tr>
-            <tr>
-                <th>採用課窓口</th>
-                <td><?php echo $companySection; ?></td>
-            </tr>
-        </table>
+        <?php if ($msg == "以下の内容で登録申請します。") { ?>
+            <table border="1">
+                <tr>
+                    <th>企業名</th>
+                    <td><?php echo $companyName; ?></td>
+                </tr>
+                <tr>
+                    <th>略称企業名</th>
+                    <td><?php echo $companyNames; ?></td>
+                </tr>
+                <tr>
+                    <th>郵便番号</th>
+                    <td><?php echo $companyPost; ?></td>
+                </tr>
+                <tr>
+                    <th>住所</th>
+                    <td><?php echo $companyAddress; ?></td>
+                </tr>
+                <tr>
+                    <th>電話番号</th>
+                    <td><?php echo $companyTel; ?></td>
+                </tr>
+                <tr>
+                    <th>メールアドレス</th>
+                    <td><?php echo $companyMail; ?></td>
+                </tr>
+                <tr>
+                    <th>採用課窓口</th>
+                    <td><?php echo $companySection; ?></td>
+                </tr>
+            </table>
         <?php } ?>
 
-    <!--以下削除（130行目からの内容に修正）
+        <!--以下削除（130行目からの内容に修正）
         <?php
         if ($btnflg) {
             // echo '<p><button type ="button" class="btn btn_another">登録依頼</button></p>';   //メールに飛ぶ？(未実装)
@@ -120,7 +120,7 @@ else {
             <p><button type="submit" name="sb" class="btn btn_another" value="send">戻る</button></p>
         </form>
     ここまで削除、これ以降追加-->
-        <form method = "POST">
+        <form method="POST">
             <?php
             if ($btnflg) {
                 echo '<p><button type="submit" name="sb" class="btn btn_another" value="dummy" formaction="./recodeTop.php">次へ</button></p>';

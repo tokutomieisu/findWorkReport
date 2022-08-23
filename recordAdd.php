@@ -203,16 +203,16 @@ if (!$stmt) {
                         $f_id = 7;
                     }
                     // echo $f_id;
-    
-    
+
+
                     // クエリの実行
                     $sqlf = "INSERT INTO report_flow (i_id,f_id)VALUES(?,?);";
                     $flo = $dbh->prepare($sqlf);
                     $flo->bindParam(1, $i_id, PDO::PARAM_INT);
                     $flo->bindParam(2, $f_id, PDO::PARAM_INT);
-    
+
                     $insertflo = $flo->execute();
-    
+
                     if ($insertflo) {
                         // echo "登録完了：11";
                     } else {
@@ -220,7 +220,6 @@ if (!$stmt) {
                     }
                 }
             }
-
         } else if ($a_cd == "2") {
 
             /**
@@ -420,11 +419,12 @@ if (!$stmt) {
         <div class="headwrrap">
             <div class="flex">
                 <p><img src="img/aicon.png" alt="logo"></p>
-                <p><?php echo $userName ?>&nbsp;様</p>
+                <p><?php echo $userName; ?>&nbsp;様</p>
             </div>
             <nav>
                 <ul>
-                    <li><a href="search.php?select=record">企業検索</a>
+                    <li><a href="favoriteCompany.php">検討リスト</a>
+                    <li><a href="select.php">TOP</a>
                     <li class="logout"><a href="index.html">ログアウト</a>
                 </ul>
             </nav>

@@ -9,11 +9,11 @@ $select =  $_SESSION['SELECT'];
 //入力フォームからデータ受け取り
 if (!empty($_SESSION['SELECTCOMPANYNAME'])) {
     $company = $_SESSION['SELECTCOMPANYNAME'];
-} else if(!empty($_GET['company'])) {
+} else if (!empty($_GET['company'])) {
     $company = $_GET['company'];
     $_SESSION['SELECTCOMPANYNAME'] = $company;
     $_SESSION['COMPANYNAME'] = $company;
-}else{
+} else {
     $company = "";
 }
 // echo "company:" . $company, "　";
@@ -212,9 +212,9 @@ if ($count == 0) {
                 <p><img src="img/aicon.png" alt="logo"></p>
                 <p><?php echo $userName; ?>&nbsp;様</p>
             </div>
-
             <nav>
                 <ul>
+                    <li><a href="favoriteCompany.php">検討リスト</a>
                     <li><a href="select.php">TOP</a>
                     <li class="logout"><a href="index.html">ログアウト</a>
                 </ul>

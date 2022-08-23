@@ -405,59 +405,51 @@ SELECT
 FROM
     mt_company;
 
-
-
 CREATE TABLE mt_flow(
-    id INT AUTO_INCREMENT
-    ,name varchar(30)
-    ,PRIMARY KEY(id)
+    id INT AUTO_INCREMENT,
+    name varchar(30),
+    PRIMARY KEY(id)
 );
 
-INSERT INTO mt_flow (
-    name
-    ) VALUES(
-    '説明会'
-);
+INSERT INTO
+    mt_flow (name)
+VALUES
+    ('説明会');
 
-INSERT INTO mt_flow (
-    name
-    ) VALUES(
-    '適性検査'
-);
+INSERT INTO
+    mt_flow (name)
+VALUES
+    ('適性検査');
 
-INSERT INTO mt_flow (
-    name
-    ) VALUES(
-    '1次面接'
-);
+INSERT INTO
+    mt_flow (name)
+VALUES
+    ('1次面接');
 
-INSERT INTO mt_flow (
-    name
-    ) VALUES(
-    '2次面接'
-);
+INSERT INTO
+    mt_flow (name)
+VALUES
+    ('2次面接');
 
-INSERT INTO mt_flow (
-    name
-    ) VALUES(
-    '3次面接'
-);
+INSERT INTO
+    mt_flow (name)
+VALUES
+    ('3次面接');
 
-INSERT INTO mt_flow (
-    name
-    ) VALUES(
-    '4次面接'
-);
+INSERT INTO
+    mt_flow (name)
+VALUES
+    ('4次面接');
 
-INSERT INTO mt_flow (
-    name
-    ) VALUES(
-    '最終面接'
-);
+INSERT INTO
+    mt_flow (name)
+VALUES
+    ('最終面接');
 
-SELECT * FROM mt_flow;
-
-
+SELECT
+    *
+FROM
+    mt_flow;
 
 CREATE TABLE mt_industry(
     in_cd char(5),
@@ -486,107 +478,62 @@ FROM
     mt_industry;
 
 CREATE TABLE mt_occupation(
-    o_cd char(5)
-    ,o_name varchar(30)
-    ,in_cd char(5)
-    ,PRIMARY KEY(o_cd)
-    ,FOREIGN KEY mt_occupation(in_cd) REFERENCES mt_industry(in_cd)
+    o_cd char(5),
+    o_name varchar(30),
+    in_cd char(5),
+    PRIMARY KEY(o_cd),
+    FOREIGN KEY mt_occupation(in_cd) REFERENCES mt_industry(in_cd)
 );
 
-INSERT INTO mt_occupation (
-    o_cd
-    ,o_name
-    ,in_cd
-    ) VALUES(
-    'oc001'
-    ,'プログラマー'
-    ,'in001'
-);
+INSERT INTO
+    mt_occupation (o_cd, o_name, in_cd)
+VALUES
+    ('oc001', 'プログラマー', 'in001');
 
-INSERT INTO mt_occupation (
-    o_cd
-    ,o_name
-    ,in_cd
-    ) VALUES(
-    'oc002'
-    ,'システムエンジニア'
-    ,'in001'
-);
+INSERT INTO
+    mt_occupation (o_cd, o_name, in_cd)
+VALUES
+    ('oc002', 'システムエンジニア', 'in001');
 
-INSERT INTO mt_occupation (
-    o_cd
-    ,o_name
-    ,in_cd
-    ) VALUES(
-    'oc003'
-    ,'プロジェクトマネージャ'
-    ,'in001'
-);
+INSERT INTO
+    mt_occupation (o_cd, o_name, in_cd)
+VALUES
+    ('oc003', 'プロジェクトマネージャ', 'in001');
 
-INSERT INTO mt_occupation (
-    o_cd
-    ,o_name
-    ,in_cd
-    ) VALUES(
-    'oc004'
-    ,'ゲームプランナー'
-    ,'in002'
-);
+INSERT INTO
+    mt_occupation (o_cd, o_name, in_cd)
+VALUES
+    ('oc004', 'ゲームプランナー', 'in002');
 
-INSERT INTO mt_occupation (
-    o_cd
-    ,o_name
-    ,in_cd
-    ) VALUES(
-    'oc005'
-    ,'ゲームプログラマー'
-    ,'in002'
-);
+INSERT INTO
+    mt_occupation (o_cd, o_name, in_cd)
+VALUES
+    ('oc005', 'ゲームプログラマー', 'in002');
 
-INSERT INTO mt_occupation (
-    o_cd
-    ,o_name
-    ,in_cd
-    ) VALUES(
-    'oc006'
-    ,'ゲームクリエイター'
-    ,'in002'
-);
+INSERT INTO
+    mt_occupation (o_cd, o_name, in_cd)
+VALUES
+    ('oc006', 'ゲームクリエイター', 'in002');
 
-INSERT INTO mt_occupation (
-    o_cd
-    ,o_name
-    ,in_cd
-    ) VALUES(
-    'oc007'
-    ,'音響'
-    ,'in003'
-);
+INSERT INTO
+    mt_occupation (o_cd, o_name, in_cd)
+VALUES
+    ('oc007', '音響', 'in003');
 
-INSERT INTO mt_occupation (
-    o_cd
-    ,o_name
-    ,in_cd
-    ) VALUES(
-    'oc008'
-    ,'音楽プロデューサー'
-    ,'in003'
-);
+INSERT INTO
+    mt_occupation (o_cd, o_name, in_cd)
+VALUES
+    ('oc008', '音楽プロデューサー', 'in003');
 
-INSERT INTO mt_occupation (
-    o_cd
-    ,o_name
-    ,in_cd
-    ) VALUES(
-    'oc009'
-    ,'DJ'
-    ,'in003'
-);
+INSERT INTO
+    mt_occupation (o_cd, o_name, in_cd)
+VALUES
+    ('oc009', 'DJ', 'in003');
 
-
-
-SELECT * FROM mt_occupation;
-
+SELECT
+    *
+FROM
+    mt_occupation;
 
 CREATE TABLE mt_venue(
     v_cd char(1),
@@ -1416,9 +1363,6 @@ SELECT
     *
 FROM
     findworkreport;
-    
-
-
 
 CREATE TABLE report_property(
     j_id INT,
@@ -2403,7 +2347,6 @@ SELECT
 FROM
     other;
 
-
 CREATE TABLE report_flow(
     i_id INT,
     f_id INT,
@@ -2447,7 +2390,6 @@ INSERT INTO
 VALUES
     (2, 7);
 
-
 INSERT INTO
     report_flow (i_id, f_id)
 VALUES
@@ -2457,7 +2399,6 @@ INSERT INTO
     report_flow (i_id, f_id)
 VALUES
     (3, 7);
-
 
 INSERT INTO
     report_flow (i_id, f_id)
@@ -2469,7 +2410,6 @@ INSERT INTO
 VALUES
     (4, 7);
 
-
 INSERT INTO
     report_flow (i_id, f_id)
 VALUES
@@ -2479,7 +2419,6 @@ INSERT INTO
     report_flow (i_id, f_id)
 VALUES
     (5, 7);
-
 
 INSERT INTO
     report_flow (i_id, f_id)
@@ -2491,7 +2430,6 @@ INSERT INTO
 VALUES
     (6, 7);
 
-
 INSERT INTO
     report_flow (i_id, f_id)
 VALUES
@@ -2501,7 +2439,6 @@ INSERT INTO
     report_flow (i_id, f_id)
 VALUES
     (7, 7);
-
 
 INSERT INTO
     report_flow (i_id, f_id)
@@ -2513,7 +2450,6 @@ INSERT INTO
 VALUES
     (8, 7);
 
-
 INSERT INTO
     report_flow (i_id, f_id)
 VALUES
@@ -2523,7 +2459,6 @@ INSERT INTO
     report_flow (i_id, f_id)
 VALUES
     (9, 7);
-
 
 INSERT INTO
     report_flow (i_id, f_id)
@@ -2535,7 +2470,6 @@ INSERT INTO
 VALUES
     (10, 7);
 
-
 INSERT INTO
     report_flow (i_id, f_id)
 VALUES
@@ -2545,7 +2479,6 @@ INSERT INTO
     report_flow (i_id, f_id)
 VALUES
     (11, 7);
-
 
 INSERT INTO
     report_flow (i_id, f_id)
@@ -2557,7 +2490,6 @@ INSERT INTO
 VALUES
     (12, 7);
 
-
 INSERT INTO
     report_flow (i_id, f_id)
 VALUES
@@ -2567,7 +2499,6 @@ INSERT INTO
     report_flow (i_id, f_id)
 VALUES
     (13, 7);
-
 
 INSERT INTO
     report_flow (i_id, f_id)
@@ -2579,7 +2510,6 @@ INSERT INTO
 VALUES
     (14, 7);
 
-
 INSERT INTO
     report_flow (i_id, f_id)
 VALUES
@@ -2589,7 +2519,6 @@ INSERT INTO
     report_flow (i_id, f_id)
 VALUES
     (15, 7);
-
 
 INSERT INTO
     report_flow (i_id, f_id)
@@ -2601,7 +2530,6 @@ INSERT INTO
 VALUES
     (16, 7);
 
-
 INSERT INTO
     report_flow (i_id, f_id)
 VALUES
@@ -2611,7 +2539,6 @@ INSERT INTO
     report_flow (i_id, f_id)
 VALUES
     (17, 7);
-
 
 INSERT INTO
     report_flow (i_id, f_id)
@@ -2623,7 +2550,6 @@ INSERT INTO
 VALUES
     (18, 7);
 
-
 INSERT INTO
     report_flow (i_id, f_id)
 VALUES
@@ -2633,7 +2559,6 @@ INSERT INTO
     report_flow (i_id, f_id)
 VALUES
     (19, 7);
-
 
 INSERT INTO
     report_flow (i_id, f_id)
@@ -2650,17 +2575,48 @@ SELECT
 FROM
     report_flow;
 
-
 CREATE TABLE new_company(
-    d_id char(7)
-    ,c_name varchar(30)
-    ,c_names varchar(30)
-    ,c_post char(7)
-    ,c_address varchar(30)
-    ,c_tel varchar(30)
-    ,c_mail varchar(30)
-    ,c_section varchar(30)
-    ,c_id char(7)
-    ,PRIMARY KEY(d_id)
+    d_id char(7),
+    c_name varchar(30),
+    c_names varchar(30),
+    c_post char(7),
+    c_address varchar(30),
+    c_tel varchar(30),
+    c_mail varchar(30),
+    c_section varchar(30),
+    c_id char(7),
+    PRIMARY KEY(d_id)
 );
-SELECT * FROM new_company;
+
+SELECT
+    *
+FROM
+    new_company;
+
+CREATE TABLE student_company(
+    s_id char(9),
+    c_id char(7),
+    PRIMARY KEY(s_id, c_id),
+    FOREIGN KEY (s_id) REFERENCES mt_student(student_id),
+    FOREIGN KEY (c_id) REFERENCES mt_company(c_id)
+);
+
+INSERT INTO
+    student_company (s_id, c_id)
+VALUES
+    ("202112345", "co00004");
+
+INSERT INTO
+    student_company (s_id, c_id)
+VALUES
+    ("202112345", "co00001");
+
+INSERT INTO
+    student_company (s_id, c_id)
+VALUES
+    ("202112345", "co00002");
+
+SELECT
+    *
+FROM
+    student_company;

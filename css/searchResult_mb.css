@@ -26,8 +26,9 @@
     text-decoration: none;
     color: #4d5156;
     letter-spacing: 2px;
-    font-size: 20px;
+    font-size: 16px;
     padding: 0px 4%;
+    font-weight: 600;
 }
 
 span {

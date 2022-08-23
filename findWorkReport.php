@@ -129,10 +129,10 @@ foreach ($f_c_name as $c_name) {
                 <p><img src="img/aicon.png" alt="logo"></p>
                 <p><?php echo $userName; ?>&nbsp;様</p>
             </div>
-
             <nav>
                 <ul>
-                    <li><a href="search.php?select=read">企業検索</a>
+                    <li><a href="favoriteCompany.php">検討リスト</a>
+                    <li><a href="select.php">TOP</a>
                     <li class="logout"><a href="index.html">ログアウト</a>
                 </ul>
             </nav>
@@ -173,7 +173,7 @@ foreach ($f_c_name as $c_name) {
                     <div class="contentClass">
                         <?php foreach ($stmt3 as $row) { ?>
                             <a href="readReport.php?j_id=<?= $row["j_id"] ?>&a_id=3" class="category2 btn_a "><?= date('Y年n月d日', strtotime($row["day"])) . "&emsp;" . $row["classification"] ?></a><br>
-                            <?php } ?>
+                        <?php } ?>
                     </div>
 
                     <input type="radio" name="tabName" id="tab4" value="4">
@@ -182,7 +182,7 @@ foreach ($f_c_name as $c_name) {
                     <div class="contentClass">
                         <?php foreach ($stmt4 as $row) { ?>
                             <a href="readReport.php?j_id=<?= $row["j_id"] ?>&a_id=4" class="category2 btn_a "><?= date('Y年n月d日', strtotime($row["day"])) . "&emsp;" . $row["classification"] ?></a><br>
-                            <?php } ?>
+                        <?php } ?>
                     </div>
                 </div>
                 <input type="hidden" name="hidden" value="hidden">

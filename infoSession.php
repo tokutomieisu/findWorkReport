@@ -128,69 +128,68 @@ $thoughts = !empty($_SESSION['THOUGHTS']) ? $_SESSION['THOUGHTS'] : "";
 
 </head>
 
-<body>
-    <script src="js/infoSession.js"></script>
-    <header>
-        <div class="headwrrap">
-            <div class="flex">
-                <p><img src="img/aicon.png" alt="logo"></p>
-                <p><?php echo $userName ?>&nbsp;様</p>
-            </div>
-
-            <nav>
-                <ul>
-                    <li><a href="search.php">企業検索</a>
-                    <li class="logout"><a href="index.html">ログアウト</a>
-                </ul>
-            </nav>
+<body></body>
+<header>
+    <div class="headwrrap">
+        <div class="flex">
+            <p><img src="img/aicon.png" alt="logo"></p>
+            <p><?php echo $userName; ?>&nbsp;様</p>
         </div>
-    </header>
+        <nav>
+            <ul>
+                <li><a href="favoriteCompany.php">検討リスト</a>
+                <li><a href="select.php">TOP</a>
+                <li class="logout"><a href="index.html">ログアウト</a>
+            </ul>
+        </nav>
+    </div>
+</header>
 
-    <a href="recodeTop.php" class="backimg"><img src="img/back.png" alt="back"></a>
-    <section class="main">
-        <div class="text an2-fadeup">
-            <h1 class="t_left">説明会</h1>
-            <h2 class="t_left">区分</h2>
-            <form action="recordCheck.php" method="get">
+<a href="recodeTop.php" class="backimg"><img src="img/back.png" alt="back"></a>
+<section class="main">
+    <div class="text an2-fadeup">
+        <h1 class="t_left">説明会</h1>
+        <h2 class="t_left">区分</h2>
+        <form action="recordCheck.php" method="get">
 
-                <p class="article record_t"><input type="radio" class="radio radio_base" id="es" name="classification2" <?= $classificationCheck1 ?> onclick="formSwitch2()" value="合同" onchange="formSwitch2()">
-                    <label for="es" class="radio_l">合同</label>
-                    <input type="radio" class="radio radio_base" id="composition" name="classification2" <?= $classificationCheck2 ?> onclick="formSwitch2()" value="学内">
-                    <label for="composition" class="radio_l">学内</label>
-                    <input type="radio" class="radio radio_base" id="write" name="classification2" <?= $classificationCheck3 ?> onclick="formSwitch2()" value="学外">
-                    <label for="write" class="radio_l">学外</label>
-                </p>
+            <p class="article record_t"><input type="radio" class="radio radio_base" id="es" name="classification2" <?= $classificationCheck1 ?> onclick="formSwitch2()" value="合同" onchange="formSwitch2()">
+                <label for="es" class="radio_l">合同</label>
+                <input type="radio" class="radio radio_base" id="composition" name="classification2" <?= $classificationCheck2 ?> onclick="formSwitch2()" value="学内">
+                <label for="composition" class="radio_l">学内</label>
+                <input type="radio" class="radio radio_base" id="write" name="classification2" <?= $classificationCheck3 ?> onclick="formSwitch2()" value="学外">
+                <label for="write" class="radio_l">学外</label>
+            </p>
 
 
-                <p class="t_left record_t">
-                <div id="jointList" class="textarea t_left  record_t">
-                    <label for="title">会場名　：</label>
-                    <input type="text" id="title" name="classification2text[]" value="<?= $cTextCheck1 ?>">
-                </div>
-                <div id="onCampusList" class="textarea t_left  record_t">
-                    <label for="room">教室名　：</label>
-                    <input type="text" id="room" name="classification2text[]" value="<?= $cTextCheck2 ?>">
-                </div>
-                <div id="offCampusList" class="textarea t_left  record_t">
-                    <label for="num">参加人数：</label>
-                    <input type="text" id="num" name="classification2text[]" value="<?= $cTextCheck3 ?>">
-                </div>
-                </p>
-                <h2>選考フロー</h2>
-                <div class="record_t">
-                    <?php
-                    for ($j = 0; $j < 7; $j++) { ?>
-                        <label for="j.<?= $j ?>" class="radio_l"><input class="checkbox" <?= $checks2[$j] ?> type="checkbox" id="j.<?= $j ?>" name="flow[]" value="<?= $columns2[$j] ?>"><?= $columns2[$j] ?></label>
-                    <?php } ?>
-                </div>
-                <h2 class="t_left">持参物</h2>
-                <p class="article record_t">
-                    <?php
-                    for ($i = 0; $i < 8; $i++) { ?>
-                        <label for="<?= $i ?>" class="radio_l"><input class="checkbox" <?= $checks[$i] ?> type="checkbox" id="<?= $i ?>" name="property[]" value="<?= $columns[$i] ?>"><?= $columns[$i] ?></label>
-                    <?php } ?>
-                </p>
-                <!-- <h2 class="t_left">レビュー</h2>
+            <p class="t_left record_t">
+            <div id="jointList" class="textarea t_left  record_t">
+                <label for="title">会場名　：</label>
+                <input type="text" id="title" name="classification2text[]" value="<?= $cTextCheck1 ?>">
+            </div>
+            <div id="onCampusList" class="textarea t_left  record_t">
+                <label for="room">教室名　：</label>
+                <input type="text" id="room" name="classification2text[]" value="<?= $cTextCheck2 ?>">
+            </div>
+            <div id="offCampusList" class="textarea t_left  record_t">
+                <label for="num">参加人数：</label>
+                <input type="text" id="num" name="classification2text[]" value="<?= $cTextCheck3 ?>">
+            </div>
+            </p>
+            <h2>選考フロー</h2>
+            <div class="record_t">
+                <?php
+                for ($j = 0; $j < 7; $j++) { ?>
+                    <label for="j.<?= $j ?>" class="radio_l"><input class="checkbox" <?= $checks2[$j] ?> type="checkbox" id="j.<?= $j ?>" name="flow[]" value="<?= $columns2[$j] ?>"><?= $columns2[$j] ?></label>
+                <?php } ?>
+            </div>
+            <h2 class="t_left">持参物</h2>
+            <p class="article record_t">
+                <?php
+                for ($i = 0; $i < 8; $i++) { ?>
+                    <label for="<?= $i ?>" class="radio_l"><input class="checkbox" <?= $checks[$i] ?> type="checkbox" id="<?= $i ?>" name="property[]" value="<?= $columns[$i] ?>"><?= $columns[$i] ?></label>
+                <?php } ?>
+            </p>
+            <!-- <h2 class="t_left">レビュー</h2>
                 <div class="stars article record_t">
                     <span>
                         <input id="review01" type="radio" name="reviews" value="5"><label for="review01">★</label>
@@ -200,19 +199,20 @@ $thoughts = !empty($_SESSION['THOUGHTS']) ? $_SESSION['THOUGHTS'] : "";
                         <input id="review05" type="radio" name="reviews" value="1"><label for="review05">★</label>
                     </span>
                 </div> -->
-                <h2 class="t_left">感想</h2>
-                <textarea rows="10" cols="60" class="largeText" name="thoughts" required><?php echo $thoughts ?></textarea>
-                <div class="review">
-                </div>
-                <p><button type="submit" name="btn" id="btnjs" class="btn btn_narrow" class="button" value="send">確認画面へ</button></p>
-            </form>
-        </div>
-    </section>
+            <h2 class="t_left">感想</h2>
+            <textarea rows="10" cols="60" class="largeText" name="thoughts" required><?php echo $thoughts ?></textarea>
+            <div class="review">
+            </div>
+            <p><button type="submit" name="btn" id="btnjs" class="btn btn_narrow" class="button" value="send">確認画面へ</button></p>
+        </form>
+    </div>
+</section>
 
 
 
 
-    <script src="js/infoSession.js"></script>
+<script src="js/infoSession.js"></script>
+<script src="js/infoSession.js"></script>
 </body>
 
 </html>
