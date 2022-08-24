@@ -1,13 +1,13 @@
         /* お気に入り */
-        
+
         .star input[type='checkbox']:checked~label {
             color: #F8C601;
         }
-        
+
         .star input[type='checkbox'] {
             display: none;
         }
-        
+
         .star label {
             color: #D2D2D2;
             /* 未選択の星をグレー色に指定 */
@@ -18,7 +18,14 @@
             cursor: pointer;
             /* カーソルが上に乗ったときに指の形にする */
         }
-        
+
         .star {
-            display: inline;
+            display: inline-block;
+            vertical-align: middle;
+            width: 15vw;
+            text-align: start;
+        }
+
+        #id_star {
+            margin-left: 1%;
         }

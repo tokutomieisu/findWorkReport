@@ -8,6 +8,9 @@ $aId = $_SESSION["a_cd"];
 
 if (isset($_GET['j_id'])) {
     $jId = $_GET['j_id'];
+    $_SESSION['selectj_id'] = $_GET['j_id'];
+}else{
+    $jId = $_SESSION['selectj_id'];
 }
 
 
@@ -148,6 +151,7 @@ else if ($classification2 == "グループワーク") {
     <link rel="stylesheet" type="text/css" href="css/header_mb.css">
     <link rel="stylesheet" type="text/css" href="css/footer_mb.css">
     <link rel="stylesheet" type="text/css" href="css/readReport_mb.css">
+    <link rel="stylesheet" type="text/css" href="css/favorite_mb.css">
     <title>レポート選択</title>
 </head>
 
@@ -156,7 +160,8 @@ else if ($classification2 == "グループワーク") {
         <div class="headwrrap">
             <div class="flex h_textarea">
                 <a href="findWorkReport_mb.php" class="backimg"><img src="img/back_mb.png" alt="back"></a>
-                <p class="h_text"><?= $val['c_name'] ?>&ensp; <?= $a_name ?></p>
+                <p class="h_text_star"><?= $val['c_name'] ?>&ensp;<?= $a_name ?></p>
+                <span class="star">&emsp;</span>
             </div>
 
         </div>
@@ -268,10 +273,16 @@ else if ($classification2 == "グループワーク") {
         </form>
         <footer>
             <div class="footerwrrap">
-                <p class="icon"><a href="search_mb.php"><img src="img/search.png" alt=""></a></p>
+                <p class="icon">
+                    <a href="search_mb.php"><img src="img/search.png" alt=""></a>
+                </p>
+                <p class="icon">
+                    <a href="favoriteCompany_mb.php?pass=readReport_mb.php"><img src="img/company.png" alt=""></a>
+                </p>
             </div>
             <div class="footertext">
                 <p class="icontext">検索</p>
+                <p class="icontext">検討リスト</p>
             </div>
         </footer>
     </section>

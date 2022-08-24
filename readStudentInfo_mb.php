@@ -110,11 +110,11 @@ foreach ($f_c_name as $c_name) {
             <form action="readStudentInfo_mb.php" method="post" name="myForm">
                 <div class="flex h_textarea">
                     <a href="searchResult_mb.php" class="backimg"><img src="img/back_mb.png" alt="back"></a>
-                    <p class="h_text"><?= $companyName ?>
-                        <span class="star">
-                            <input id="review06" type="checkbox" name="review" value="1" <?= $f_check ?> onclick="runOpenstrt()"><label for="review06">★</label>
-                        </span>
-                    </p>
+                    <p class="h_text"><?= $companyName ?></p>
+                    <span class="star">
+                        <input id="review06" type="checkbox" name="review" value="1" <?= $f_check ?> onclick="runOpenstrt()"><label for="review06">★</label>
+                    </span>
+
                 </div>
                 <input type="hidden" name="hidden1" value="hidden">
             </form>
@@ -131,10 +131,16 @@ foreach ($f_c_name as $c_name) {
         </form>
         <footer>
             <div class="footerwrrap">
-                <p class="icon"><a href="search_mb.php"><img src="img/search.png" alt=""></a></p>
+                <p class="icon">
+                    <a href="search_mb.php"><img src="img/search.png" alt=""></a>
+                </p>
+                <p class="icon">
+                    <a href="favoriteCompany_mb.php?pass=readStudentInfo_mb.php"><img src="img/company.png" alt=""></a>
+                </p>
             </div>
             <div class="footertext">
                 <p class="icontext">検索</p>
+                <p class="icontext">検討リスト</p>
             </div>
         </footer>
     </section>

@@ -84,11 +84,11 @@ try {
     if ($f_judge == "add") {
         $sql1 = "INSERT INTO student_company (s_id, c_id) VALUES('$userId', '$companyId');";
         $f_c_name[] = $companyName;
-        $stmtf = $dbh->query($sql1);
+        $stmt1 = $dbh->query($sql1);
         $_SESSION['f_c_name'] = $f_c_name;
     } else if ($f_judge == "del") {
         $sql1 = "DELETE FROM student_company WHERE c_id = '$companyId' AND s_id = '$userId';";
-        $stmtf = $dbh->query($sql1);
+        $stmt1 = $dbh->query($sql1);
         $key = array_search($companyName, $f_c_name);
         unset($f_c_name[$key]);
         $f_c_name = array_values($f_c_name);
@@ -133,13 +133,13 @@ foreach ($f_c_name as $c_name) {
             <form action="findWorkReport_mb.php" method="post" name="myForm">
                 <div class="flex h_textarea">
                     <a href="div_mb.php" class="backimg"><img src="img/back_mb.png" alt="back"></a>
-                    <p class="h_text_star"><?= $companyName ?>&ensp;<?= $a_name ?>
-                        <span class="star">
-                            <input id="review06" type="checkbox" name="review" value="1" <?= $f_check ?> onclick="runOpenstrt()"><label for="review06">★</label>
-                        </span>
-                    </p>
+                    <p class="h_text_star"><?= $companyName ?>&ensp;<?= $a_name ?></p>
+                    <span class="star">
+                        <input id="review06" type="checkbox" name="review" value="1" <?= $f_check ?> onclick="runOpenstrt()"><label for="review06">★</label>
+                    </span>
+
                 </div>
-                <input type="hidden" name="hidden1" value="hidden"> 
+                <input type="hidden" name="hidden1" value="hidden">
             </form>
         </div>
     </header>
@@ -155,13 +155,20 @@ foreach ($f_c_name as $c_name) {
         </form>
         <footer>
             <div class="footerwrrap">
-                <p class="icon"><a href="search_mb.php"><img src="img/search.png" alt=""></a></p>
+                <p class="icon">
+                    <a href="search_mb.php"><img src="img/search.png" alt=""></a>
+                </p>
+                <p class="icon">
+                    <a href="favoriteCompany_mb.php?pass=findWorkReport_mb.php"><img src="img/company.png" alt=""></a>
+                </p>
             </div>
             <div class="footertext">
                 <p class="icontext">検索</p>
+                <p class="icontext">検討リスト</p>
             </div>
         </footer>
     </section>
     <script src="js/favorite.js"></script>
 </body>
+
 </html>

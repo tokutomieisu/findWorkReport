@@ -94,10 +94,16 @@ $o = false;
         </form>
         <footer>
             <div class="footerwrrap">
-                <p class="icon"><a href="search_mb.php"><img src="img/search.png" alt=""></a></p>
+                <p class="icon">
+                    <a href="search_mb.php"><img src="img/search.png" alt=""></a>
+                </p>
+                <p class="icon">
+                    <a href="favoriteCompany_mb.php?pass=search_mb.php"><img src="img/company.png" alt=""></a>
+                </p>
             </div>
             <div class="footertext">
                 <p class="icontext">検索</p>
+                <p class="icontext">検討リスト</p>
             </div>
         </footer>
     </section>

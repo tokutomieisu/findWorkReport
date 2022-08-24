@@ -149,7 +149,7 @@ if ($count == 0) {
 </head>
 
 <body>
-    <header>
+<header>
         <div class="headwrrap">
             <div class="flex h_textarea">
                 <a href="search_mb.php" class="backimg"><img src="img/back_mb.png" alt="back"></a>
@@ -171,14 +171,18 @@ if ($count == 0) {
                 <?php } ?>
             </div>
         </form>
-
-
         <footer>
             <div class="footerwrrap">
-                <p class="icon"><a href="search_mb.php"><img src="img/search.png" alt=""></a></p>
+                <p class="icon">
+                    <a href="search_mb.php"><img src="img/search.png" alt=""></a>
+                </p>
+                <p class="icon">
+                    <a href="favoriteCompany_mb.php?pass=searchResult_mb.php"><img src="img/company.png" alt=""></a>
+                </p>
             </div>
             <div class="footertext">
                 <p class="icontext">検索</p>
+                <p class="icontext">検討リスト</p>
             </div>
         </footer>
     </section>
