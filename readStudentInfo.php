@@ -24,8 +24,6 @@ if (!empty($_GET['back'])) {
 
 $companyId = $_SESSION["COMPANYID"];
 $companyName = $_SESSION["COMPANYNAME"];
-$occupationName = $_SESSION['OCCUPATIONNAME'];
-$industryName = $_SESSION['INDUSTRYNAME'];
 
 
 
@@ -55,12 +53,6 @@ if (isset($_POST['hidden1'])) {
 
 
 $title = $companyName;
-if ($industryName !== "指定なし") {
-    $title .=  "&nbsp;" . $industryName;
-}
-if ($occupationName !== "指定なし") {
-    $title .=  "&nbsp;" . $occupationName;
-}
 
 
 //DB接続準備
@@ -150,7 +142,7 @@ foreach ($f_c_name as $c_name) {
                 <div class="flex starflex">
                     <h1><?= $title ?> </h1>
                     <span class="star ">
-                        <input id="review06" type="checkbox" name="review" value="1" <?= $f_check ?> onclick="runOpenstrt()"><label for="review06"><span class="set"><span id="s_star">★</span><span class="block">お気に入り</span></span></label>
+                        <input id="review06" type="checkbox" name="review" value="1" <?= $f_check ?> onclick="runOpenstrt()"><label for="review06"><span class="set"><span id="s_star">★</span><span class="block">検討リスト</span></span></label>
                     </span>
                 </div>
 

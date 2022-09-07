@@ -49,6 +49,7 @@ else {
     <link rel="stylesheet" type="text/css" href="css/login.css">
     <link rel="stylesheet" type="text/css" href="css/header.css">
     <link rel="stylesheet" type="text/css" href="css/backImg.css">
+    <link rel="stylesheet" type="text/css" href="css/readStudentInfo.css">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <title>企業追加登録申請内容確認</title>
 </head>
@@ -73,9 +74,9 @@ else {
     <a href="./newCompany.php" class="backimg"><img src="img/back.png" alt="back"></a>
 
     <div class="text">
-        <h1 class="text_left"><?php echo $msg; ?></h1> <!-- 通った処理に合わせたメッセージ-->
+        <h1 class="text_left newcompany"><?php echo $msg; ?></h1> <!-- 通った処理に合わせたメッセージ-->
         <?php if ($msg == "以下の内容で登録申請します。") { ?>
-            <table border="1">
+            <table border="1"  class="report mb">
                 <tr>
                     <th>企業名</th>
                     <td><?php echo $companyName; ?></td>
@@ -107,27 +108,17 @@ else {
             </table>
         <?php } ?>
 
-        <!--以下削除（130行目からの内容に修正）
-        <?php
-        if ($btnflg) {
-            // echo '<p><button type ="button" class="btn btn_another">登録依頼</button></p>';   //メールに飛ぶ？(未実装)
-            echo '<p><button type ="button" onclick=”location.href=’recodeTop.php’” class="btn btn_another">登録依頼</button></p>';
-        }
-        ?>
-
-        <form action="newCompany.php" method="post">
-            //企業の名前と住所をSessionで送る
-            <p><button type="submit" name="sb" class="btn btn_another" value="send">戻る</button></p>
-        </form>
-    ここまで削除、これ以降追加-->
         <form method="POST">
+            <div class="n_flex">
+                <!--企業の名前と住所をSessionで送る -->
+            <p><button type="submit" name="sb" class="btn btn_another" value="send" formaction="./newCompany.php">戻る</button></p>
             <?php
             if ($btnflg) {
                 echo '<p><button type="submit" name="sb" class="btn btn_another" value="dummy" formaction="./recodeTop.php">次へ</button></p>';
             }
             ?>
-            <!--企業の名前と住所をSessionで送る -->
-            <p><button type="submit" name="sb" class="btn btn_another" value="send" formaction="./newCompany.php">戻る</button></p>
+            
+            </div>
         </form>
     </div>
 </body>

@@ -164,7 +164,7 @@ foreach ($stmt as $row) {
             <li><a href="#">就職管理</a></li>
             <li><a href="newCompany.php">企業申請登録</a>
                 <?php if (!empty($d_count)) { ?>
-                    <span>未処理<?php echo $d_count ?>件</span>
+                    <br><span>未処理<?php echo $d_count ?>件</span>
                 <?php } ?>
             </li>
         </ul>

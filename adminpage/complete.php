@@ -30,32 +30,25 @@ try {
     if (!empty($_POST['btn'])) {
 
         if ($_POST['btn'] == 'add') {  //btnの値が追加の場合、登録処理を行う
-            echo "データベースに登録します\n";
+
 
             //セッションを始める
             session_start();
 
             //登録前のレコード件数を取得
             $cId = $_POST['count'];
-            echo "IDの最大値：" . $cId . "\n";
             $cId = $cId + 1;
-            echo "IDの最大値+1：" . $cId . "\n";
-            echo "IDの桁数は：" . strlen($cId) . "\n";
 
             if (isset($_SESSION['DUMMYID'])) {
                 $dummyId = $_SESSION['DUMMYID'];
-                echo "ダミーID：" . $dummyId . "\n";
 
                 if (strlen($cId) == 1) { //企業IDの値が一桁（1～9）の場合
                     $cId = 'co0000' . $cId;
-                    echo $cId;
                     $sql = "UPDATE new_company SET c_id ='$cId' WHERE d_id='$dummyId'";
                 } else { //企業IDの値が二桁（10以上）の場合
                     $cId = 'co000' . $cId;
-                    echo $cId;
                     $sql = "UPDATE new_company SET c_id ='$cId' WHERE d_id='$dummyId';";
                 }
-                echo $sql . "\n";
                 $stmt = $dbh->query($sql);
 
                 $name = $_SESSION['FORMARRAY'][0];
@@ -67,14 +60,14 @@ try {
                 $section = $_SESSION['FORMARRAY'][6];
 
                 $sql1 = "UPDATE mt_company SET c_id = '$cId', c_name = '$name', c_names = '$names',c_post = '$post',c_address = '$address', c_tel = '$tel', c_mail = '$mail', c_section = '$section' WHERE c_id = '$dummyId';";
-                echo $sql1;
+
                 $stmt2 = $dbh->query($sql1);
             } else {
 
                 // SQL文をセット
                 //企業を追加登録する
                 $sql = "INSERT INTO mt_company (c_id,c_name,c_names,c_post,c_address,c_tel,c_mail,c_section) VALUES(:id,:name,:names,:post,:address,:tel,:email,:section);";
-                echo $sql;
+
                 $stmt = $dbh->prepare($sql);
 
                 // 値をセット
@@ -185,7 +178,7 @@ $dbh = null;
             <li><a href="#">就職管理</a></li>
             <li><a href="newCompany.php">企業申請登録</a>
                 <?php if (!empty($d_count)) { ?>
-                    <span>未処理<?php echo $d_count ?>件</span>
+                    <br><span>未処理<?php echo $d_count ?>件</span>
                 <?php } ?>
             </li>
         </ul>
