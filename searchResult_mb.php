@@ -149,7 +149,7 @@ if ($count == 0) {
 </head>
 
 <body>
-<header>
+    <header>
         <div class="headwrrap">
             <div class="flex h_textarea">
                 <a href="search_mb.php" class="backimg"><img src="img/back_mb.png" alt="back"></a>
@@ -166,8 +166,8 @@ if ($count == 0) {
                         <p class="panel"><a href="readStudentInfo_mb.php?c_id=<?= $row["c_id"] ?> &c_name= <?= $row["c_name"] ?>"><?= $row["c_name"] ?></a></p>
                     <?php } ?>
                 <?php } else { ?>
-                    <h2>検索結果が見つかりませんでした</h2>
-                    <p class="btn" id="notbtn" for="back"><a href="./search_mb.php" id="back">戻る</a></p>
+                    <h3>検索結果が見つかりませんでした。</h3>
+                    <p id="notbtn" for="back"><a href="./search_mb.php" id="back" class="btn">戻る</a></p>
                 <?php } ?>
             </div>
         </form>

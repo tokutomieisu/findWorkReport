@@ -235,6 +235,7 @@ else if ($classification2 == "グループワーク") {
             <h1><?= date('Y年n月d日', strtotime($val["day"])) . "&emsp;" . $val['classification'] ?>
             </h1>
             <table border="1" class="report">
+                <p></p>
                 <tr>
                     <th>企業名</th>
                     <td><?= $val['c_name'] ?></td>

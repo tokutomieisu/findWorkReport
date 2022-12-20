@@ -273,8 +273,8 @@ if ($count == 0) {
                 }
             }
             //検索結果がなかった場合の処理
-            if ($count == 0) {
-                echo "<p><a class=\"btn\" href=\"newCompany.php\" class=\"button\">新規登録</a></p>";
+            if ($count == 0 && $select == "read") {
+                echo "<p><a class=\"btn\" href=\"search.php\" class=\"button\">戻る</a></p>";
             } else if ($select == "record") { //記録で検索結果に記録したい企業がなかった場合の処理
                 echo "<h2><br>検索条件に登録したい企業がない場合は新規登録してください。<br></h2>";
                 echo "<p><a class=\"btn\" href=\"newCompany.php\" class=\"button\">新規登録</a></p>";

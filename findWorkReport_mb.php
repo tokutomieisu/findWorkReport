@@ -149,8 +149,10 @@ foreach ($f_c_name as $c_name) {
                 <?php foreach ($stmt as $row) { ?>
                     <p class="panel"><a href="readReport_mb.php?j_id=<?= $row["j_id"] ?>"><span><?= $row["classification"] ?></span><span class="date"><?= date('Y年n月d日', strtotime($row["day"])) ?></span></a></p>
                 <?php } ?>
-                <p><?= $notStmt ?></p>
-                <a href="div_mb.php"><?= $back ?></a>
+                <?php if ($count == 0) { ?>
+                    <h3><?= $notStmt ?></h3>
+                    <a href="div_mb.php" class="btn"><?= $back ?></a>
+                <?php } ?>
             </div>
         </form>
         <footer>

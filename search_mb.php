@@ -63,6 +63,7 @@ $o = false;
         <div class="headwrrap">
             <div class="flex h_textarea">
                 <p class="h_text">検索</p>
+                <a href="start.php" class="logout">ログアウト</a>
             </div>
         </div>
     </header>

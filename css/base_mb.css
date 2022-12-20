@@ -1,9 +1,14 @@
 @charset "UTF-8";
+
 body {
     background: #f2f2f2;
     margin: 0;
     padding: 0;
     margin: 0 auto;
+}
+
+.hidden {
+    overflow: hidden;
 }
 
 .textbox {

@@ -18,6 +18,9 @@ try {
     // クエリの実行
     $sql = "SELECT  c.c_id,c.c_name FROM mt_student s INNER JOIN student_company sc ON s.student_id = sc.s_id INNER JOIN mt_company c ON c.c_id = sc.c_id WHERE s.student_id = $student_id;";
     $stmt = $dbh->query($sql);
+    if (!empty($stmt)) {
+        $count = $stmt->rowCount();
+    }
 
     // 接続を閉じる(※DBからデータを取得出来た時点で接続を切る)
     $dbh = null;
@@ -43,10 +46,10 @@ try {
 </head>
 
 <body>
-<header>
+    <header>
         <div class="headwrrap">
             <div class="flex h_textarea">
-            <a href="<?= $pass ?>" class="backimg"><img src="img/back_mb.png" alt="back"></a>
+                <a href="<?= $pass ?>" class="backimg"><img src="img/back_mb.png" alt="back"></a>
                 <p class="h_text">検討リスト</p>
             </div>
         </div>
@@ -54,8 +57,13 @@ try {
     <section class="main">
         <div class="text">
             <div class="area">
-                <?php foreach ($stmt as $row) { ?>
-                    <p class="panel"><a href="readStudentInfo.php?c_id=<?= $row["c_id"] ?>&c_name=<?= $row["c_name"] ?>&back=favorite" class="category2 btn_a a_list"><?= $row["c_name"]; ?></a></p>
+                <?php if ($count != 0) { ?>
+                    <?php foreach ($stmt as $row) { ?>
+                        <p class="panel"><a href="readStudentInfo_mb.php?c_id=<?= $row["c_id"] ?>&c_name=<?= $row["c_name"] ?>&back=favorite" class="category2 btn_a a_list"><?= $row["c_name"]; ?></a></p>
+                    <?php } ?>
+                <?php } else { ?>
+                    <h3>検討リストに保存した企業はありません。</h3>
+                    <p id="notbtn" for="back"><a href="./search_mb.php" id="back" class="btn">戻る</a></p>
                 <?php } ?>
             </div>
         </div>

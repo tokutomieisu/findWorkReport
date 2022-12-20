@@ -70,3 +70,14 @@ header img {
     width: 4%;
     line-height: 100%;
 }
+
+/** ログアウトボタン **/
+.flex a {
+    display: inline;
+    /* color: #4d5156; */
+}
+
+.logout {
+    width: 29%;
+    margin-right: 6%;
+}
